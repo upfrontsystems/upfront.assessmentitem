@@ -1,3 +1,6 @@
+from zope.component import createObject
+from zope.component import queryUtility
+
 from plone.uuid.interfaces import IUUID
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
@@ -22,8 +25,7 @@ class TestQuestion(UpfrontAssessmentItemTestBase):
         fti = queryUtility(IDexterityFTI,
                            name='upfront.assessmentitem.content.question')
         schema = fti.lookupSchema()
-        self.assertEquals(IQuestion, schema,
-                          'Question schema incorrect.')
+        self.assertEquals(IQuestion, schema, 'Question schema incorrect.')
 
     def test_question_factory(self):
         fti = queryUtility(IDexterityFTI,
