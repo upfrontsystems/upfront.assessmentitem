@@ -28,6 +28,18 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <!-- -*- extra stuff goes here -*- -->
+    <plone:behavior
+        title="Behavior that enables the setting of marks"
+        description="Behavior that enables the setting of marks"
+        provides=".behaviors.IMarks"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
+    <plone:behavior
+        title="Behavior that enables the setting of response time"
+        description="Behavior that enables the setting of response time"
+        provides=".behaviors.IResponseTime"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
 
 </configure>

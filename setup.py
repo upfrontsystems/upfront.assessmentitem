@@ -27,8 +27,10 @@ setup(name='upfront.assessmentitem',
       install_requires=[
           'setuptools',
           'plone.app.dexterity',
+          'plone.behavior',
           'plone.app.registry',          
           'plone.namedfile [blobs]',
+          'collective.topictree',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
