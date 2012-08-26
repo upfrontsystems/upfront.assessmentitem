@@ -40,3 +40,12 @@ class View(dexterity.DisplayForm):
                         'portal_type':'upfront.assessmentitem.content.question'}
         questions = self.context.getFolderContents(contentFilter)
         return questions
+
+    def marks_string(self,mark):
+        """ return mark or marks depending if number of marks is > 1 or not
+        """
+        if int(mark) > 1:
+            return 'marks'
+        else:
+            return 'mark'
+

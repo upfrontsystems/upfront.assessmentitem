@@ -13,12 +13,16 @@
 
             <h1>Assessment Item View</h1>
             <div tal:content="structure view/assessment_item" />
-            <div>Questions:</div>
+
+            <div>Questions:</div><br />
 
             <tal:questions condition="view/questions">
                 <div tal:repeat="question view/questions">
-                    <span tal:content="repeat/question/number">1</span>
-                    <div tal:content="structure python:question.getObject().question.output" />
+                    <span tal:content="repeat/question/number" />
+                    <span tal:content="structure python:question.getObject().question.output" />
+                    <span tal:content="python:question.getObject().marks" />
+                    <span tal:content="python:view.marks_string(question.getObject().marks)" />
+                    <div></div><br />
                 </div>
             </tal:questions>
     </div>
