@@ -52,34 +52,18 @@ class UpfrontAssessmentItemTestBase(unittest.TestCase):
                               'assessmentitem1')
         assessmentitem1 = self.portal._getOb('assessmentitem1')
 
-    def _createQuestion(self):
-        container = self.portal.assessmentitem1
-        new_id = container.generateId('question')
-        rel = create_relation(container.getPhysicalPath())
+    def _createAssessmentItem(self):
+        portal = self.layer['portal']
+        setRoles(portal, TEST_USER_ID, ('Manager',))
 
-        container.invokeFactory('upfront.assessmentitem.content.question',
-                                id=new_id,
-                                relatedContent=rel,
-                                text='test question 01')
-        question = container._getOb(new_id)
-        return question
+        id = portal.invokeFactory(
+                        'upfront.assessmentitem.content.assessmentitem', 
+                        'assessmentitem', 
+                        title='Assessment Item')
+        self.assessmentitem = portal._getOb(id)
 
-    def _find_viewlet(self, context, manager_name, viewlet_name, layer=None):
-        request = self.portal.REQUEST
-        if layer:
-            alsoProvides(request, layer)
-
-        view = View(context, request)
-        manager = queryMultiAdapter(
-            (context, request, view),
-            IViewletManager,
-            manager_name,
-            default=None
-        )
-        self.failUnless(manager)
-
-        manager.update()
-        viewlets = manager.viewlets
-        viewlet = [v for v in viewlets if v.__name__ == viewlet_name]
-        return viewlet
-
+        id = self.assessmentitem.invokeFactory(
+                        'upfront.assessmentitem.content.question', 
+                        'question1',
+                        title=u"Question 1")
+        self.question = self.assessmentitem._getOb(id)

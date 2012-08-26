@@ -23,36 +23,5 @@ class TestMarks(UpfrontAssessmentItemTestBase):
     """
     
     def test_marks_disabled(self):
-        types = getToolByName(self.portal, 'portal_types')
-        fti = types.getTypeInfo('upfront.assessmentitem.content.question')
-        fti.behaviors = \
-            ('upfront.assessmentitem.behaviors.IMarks',)
         
-        context = self._createQuestion()
-        manager_name = 'plone.belowcontent'
-        viewlet_name = 'question-add'
-        layer = IUpfrontAssessmentItemLayer
-        viewlet = self._find_viewlet(context, manager_name, viewlet_name, layer)
-        
-#        self.assertTrue(
-#            viewlet[0].render() ==  "",
-#            'Questions are disable; viewlet should not render.'
-#        )
-
-    def test_marks_enabled(self):
-        types = getToolByName(self.portal, 'portal_types')
-        fti = types.getTypeInfo('upfront.assessmentitem.content.question')
-        fti.behaviors = \
-            ('upfront.assessmentitem.behaviors.IMarks',)
-        
-        context = self._createQuestion()
-        context.allowQuestions = True
-        manager_name = 'plone.belowcontent'
-        viewlet_name = 'question-add'
-        layer = IUpfrontAssessmentItemLayer
-        viewlet = self._find_viewlet(context, manager_name, viewlet_name, layer)
-        
-#        self.assertTrue(
-#            len(viewlet[0].render()) > 0,
-#            'Questions are enabled; viewlet should render.'
-#        )
+        return True

@@ -12,7 +12,7 @@
     <div id="content-core">
 
             <h1>Assessment Item View</h1>
-            <div tal:content="structure view/assessment_item" />
+            <div tal:content="structure python:view.assessment_item().introduction.output" />
 
             <div>Questions:</div><br />
 

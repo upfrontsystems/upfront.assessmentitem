@@ -29,9 +29,9 @@ class View(dexterity.DisplayForm):
     grok.require('zope2.View')
 
     def assessment_item(self):
-        """ return contents of assessment item (introduction field)
+        """ returns assessment item
         """
-        return self.context.introduction.output
+        return self.context
 
     def questions(self):
         """ return all question objects in the context of assessment item
