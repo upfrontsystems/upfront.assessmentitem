@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#addintro").click(function() {
+        $("#introduction").show();
+        $("#addintro").hide();
+    });
+    $("#addmc").click(function() {
+        $("#addmc").hide()
+        $("#addff").hide()
+        $("#question").show();
+        $("#anotherquestion").show();
+    });
+    $("#delintro").click(function() {
+        $("#introduction").hide();
+        $("#addintro").show();
+    });
+    $("#addanswer").click(function() {
+        $("#answer").show();
+    });
+    $("#delanswer").click(function() {
+        $("#answer").hide();
+    });
+    $("#addquestion").click(function() {
+        $("#question2").show();
+    });
+});
+</script>
+
+
+
+<style type="text/css">
+label {
+    font-weight: bold;
+    display: block;
+}
+textarea {
+    width: 100%
+}
+a.button {
+    display: inline-block;
+    background: #efefef; 
+    padding: 0.5em;
+    margin: 1em 0;
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+}
+
+.right {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+</style>
+</head>
+
+<body>
+    <h1>Edit assessment item</h1>
+
+    <div id="introduction" style="display:none">
+        <label for="intro">
+            Introduction
+        </label>
+
+        <textarea id="introtext" cols="40" name="introduction" rows="5">Richtext widget</textarea>
+        <a id="delintro" class="button right" href="#">Delete the introduction</a>
+
+    </div>
+
+    <div class="clear"></div>
+
+    <a id="addintro" href="#" class="button">Add a common introduction to this question</a>
+
+
+    <div class="clear"></div>
+
+    <a id="addmc" href="#" class="button">Add a multiple-choice question</a>
+    <a id="addff" href="#" class="button">Add a free-form question</a>
+
+    <div id="question" style="display: none">
+        <label for="question" class="formQuestion">
+            Question
+        </label>
+
+        <textarea id="question" cols="40" name="question" rows="5">Richtext widget</textarea>
+
+        <div id="answer" style="display:none">
+            <label for="answer" class="formQuestion">
+                Answer
+            </label>
+
+            <textarea id="answer" cols="40" name="answer" rows="5">Richtext widget</textarea>
+
+            <input type="radio" name="a1" value="" checked="checked"> Right
+            <input type="radio" name="a1" value=""> Wrong
+
+            <a id="delanswer" class="button right" href="#">Delete answer</a>
+
+            <div class="clear"></div>
+                    
+        </div>
+
+        <a id="addanswer" class="button" href="#">Add a multiple-choice answer</a>
+                
+        <div class="clear"></div>
+
+        <a id="delanswer" class="button right" href="#">Delete question</a>
+
+    </div>
+
+    <div class="clear"></div>
+
+    <hr/>
+
+    <div id="anotherquestion" style="display: none">
+        <a id="addmc2" href="#" class="button">Add a multiple-choice question</a>
+        <a id="addff2" href="#" class="button">Add a free-form question</a>
+
+        <div id="question2" style="display: none">
+            <label for="question2" class="formQuestion">
+                Question
+            </label>
+
+            <textarea id="question2" cols="40" name="question" rows="5">Richtext widget</textarea>
+
+            <a id="addanswer2" class="button" href="#">Add an answer</a>
+                    
+        </div>
+
+        <hr/>
+    </div>
+
+</body>
+</html>
