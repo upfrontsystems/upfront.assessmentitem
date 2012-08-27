@@ -10,7 +10,9 @@
   <property name="factory">upfront.assessmentitem.content.question</property>
   <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>  
-  <property name="allowed_content_types"/>
+  <property name="allowed_content_types">
+    <element value="upfront.assessmentitem.content.answer" />
+  </property>
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->

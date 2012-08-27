@@ -18,7 +18,7 @@
 
             <tal:questions condition="view/questions">
                 <div tal:repeat="question view/questions">
-                    <span tal:content="repeat/question/number" />
+                    <span tal:content="repeat/question/number" /><span>.</span>
                     <span tal:content="structure python:question.getObject().question.output" />
                     <span tal:content="python:question.getObject().marks" />
                     <span tal:content="python:view.marks_string(question.getObject().marks)" />

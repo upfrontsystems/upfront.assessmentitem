@@ -33,3 +33,4 @@ pip-log.txt
 *.py~
 *.zcml~
 .gitignore~
+*.pt~
