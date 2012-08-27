@@ -1,0 +1,40 @@
+/*label {
+    font-weight: bold;
+    display: block;
+}
+textarea {
+    width: 100%
+}*/
+
+a.button {
+    display: inline-block;
+    background: #efefef; 
+    padding: 0.5em;
+    margin: 1em 0;
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    height: 20px;
+    width: 100px;
+}
+
+#addanswer {
+    display: inline-block;
+    background: #efefef; 
+    padding: 0.5em;
+    margin: 1em 0;
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    height: 20px;
+    width: 100px;
+    z-index: 10;
+}
+
+
+/*.right {
+    float: right;
+}
+.clear {
+    clear: both;
+}*/

@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone.z3cform"
+      tal:omit-tag="">
+
+<metal:form metal:define-macro="form">
+
+    <div class="portalMessage"
+        tal:condition="view/status" tal:content="view/status">
+    </div>
+
+    <form action="." method="post" id="add-question-form"
+        tal:attributes="name view/formname;
+                        action request/getURL; enctype view/enctype;
+                        class view/kssformname">
+
+    <div> QUESTION+ANSWER ADD/EDIT</div>
+
+    <div tal:define="widget nocall:view/form_instance/widgets/question">
+        <metal:block use-macro="context/@@ploneform-macros/field" />
+    </div>
+
+    <div id="result"></div>
+
+<!--    <div id="add-answer-ajaxlink"> -->
+        <!-- Hidden link to a view URL which will render the view containing the snippet for comments -->
+        <a rel="nofollow" style="display:none" tal:attributes="href string:${context/absolute_url}/++add++upfront.assessmentitem.content.answer" />
+<!--    </div> -->
+
+
+<!--    <div id="addanswer" class="button">Add a multiple-choice answer</div> -->
+
+    </form>
+
+</metal:form>
+</html>

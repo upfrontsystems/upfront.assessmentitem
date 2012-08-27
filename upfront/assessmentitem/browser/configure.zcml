@@ -1,0 +1,19 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="upfront.assessmentitem">
+
+    <grok:grok package="." />
+
+    <browser:page
+        name="questionform-macros"
+        for="*"
+        class="plone.z3cform.templates.Macros"
+        template="templates/addquestion.pt"
+        allowed_interface="zope.interface.common.mapping.IItemMapping"
+        permission="zope.Public"
+        />
+
+</configure>
