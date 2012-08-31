@@ -16,23 +16,29 @@
                         action request/getURL; enctype view/enctype;
                         class view/kssformname">
 
-    <div> QUESTION+ANSWER ADD/EDIT</div>
+        <div tal:define="widget nocall:view/form_instance/widgets/question">
+            <metal:block use-macro="context/@@ploneform-macros/field" />
+        </div>
+       
+        <div id="answer_listing">
+            <ul>
+            </ul>
+            <div id ="delete_last_answer" class="button hidden">Delete Answer</div>
+        </div> 
+        <div id ="add_answer" class="button">Add a multiple-choice answer</div>
 
-    <div tal:define="widget nocall:view/form_instance/widgets/question">
-        <metal:block use-macro="context/@@ploneform-macros/field" />
-    </div>
-
-    <div id="result"></div>
-
-<!--    <div id="add-answer-ajaxlink"> -->
-        <!-- Hidden link to a view URL which will render the view containing the snippet for comments -->
-        <a rel="nofollow" style="display:none" tal:attributes="href string:${context/absolute_url}/++add++upfront.assessmentitem.content.answer" />
-<!--    </div> -->
-
-
-<!--    <div id="addanswer" class="button">Add a multiple-choice answer</div> -->
+        <!-- used as scratchpad, a place where ajax result is placed and then moved-->
+        <div id="answer_template" class="hidden">
+        </div>
 
     </form>
+
+    <!-- Hidden link to a view URL which will render the view containing the snippet for comments -->
+    <div id="add_answer_ajaxlink">
+        <a rel="nofollow" style="display:none" 
+           tal:attributes="href string:${context/absolute_url}/++add++upfront.assessmentitem.content.answer" ></a>
+    </div>
+ 
 
 </metal:form>
 </html>

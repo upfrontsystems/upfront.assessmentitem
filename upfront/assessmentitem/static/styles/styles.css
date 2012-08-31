@@ -1,12 +1,4 @@
-/*label {
-    font-weight: bold;
-    display: block;
-}
-textarea {
-    width: 100%
-}*/
-
-a.button {
+div .button {
     display: inline-block;
     background: #efefef; 
     padding: 0.5em;
@@ -15,26 +7,18 @@ a.button {
     text-decoration: none;
     color: black;
     height: 20px;
-    width: 100px;
+    width: 90px;
 }
 
-#addanswer {
-    display: inline-block;
-    background: #efefef; 
-    padding: 0.5em;
-    margin: 1em 0;
-    border: 1px solid black;
-    text-decoration: none;
-    color: black;
-    height: 20px;
-    width: 100px;
-    z-index: 10;
+#add_answer {
+    width: 180px;
 }
 
-
-/*.right {
-    float: right;
+#content textarea {
+    height: 100px;
 }
-.clear {
-    clear: both;
-}*/
+
+.hidden,
+.button.hidden {
+    display: none
+}

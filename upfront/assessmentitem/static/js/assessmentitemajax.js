@@ -1,37 +1,40 @@
 $(document).ready(function() {
-/*    $("#addintro").click(function() {
-        $("#introduction").show();
-        $("#addintro").hide();
-    });
-    $("#addmc").click(function() {
-        $("#addmc").hide()
-        $("#addff").hide()
-        $("#question").show();
-        $("#anotherquestion").show();
-    });
-    $("#delintro").click(function() {
-        $("#introduction").hide();
-        $("#addintro").show();
-    });
-    $("#addanswer").click(function() {
-        $("#answer").show();
-    });
-    $("#delanswer").click(function() {
-        $("#answer").hide();
-    });
-    $("#addquestion").click(function() {
-        $("#question2").show();
-    }); */
 
-    $("#addanswer").click(function() {
-/*        $("#answer").show(); */
+
+    jq("#add_answer").click(function() {
+
         // Extract URL from HTML page
-/*        var answer_result = jq("#add-answer-ajaxlink a").attr("href");
-        if (answer_result) {
-            // Trigger AJAX call
-            jq("#result").load(answer_result);
-        } */
+        var answerhtml = jq("#add_answer_ajaxlink a").attr("href");
+        if (answerhtml) {
+            // create the divs where ajax call with reside
+            jq("#answer_template").append('<li><div id="result_answer"></div><div id="result_choice"></div></li>');
+    
+            jq("#result_answer").load('++add++upfront.assessmentitem.content.answer #formfield-form-widgets-answer');
+            jq("#result_choice").load('++add++upfront.assessmentitem.content.answer #formfield-form-widgets-iscorrect');
+
+            // place formatted ajax result in appropriate place
+            jq("#answer_listing ul").append(jq('#answer_template li'));
+
+            //remove result_answer and result_choice id from placed ajax results. (to not confuse next ajax request)
+            jq("#answer_listing #result_answer").removeAttr('id');
+            jq("#answer_listing #result_choice").removeAttr('id');
+
+            // show the delete answer button
+            jq("#delete_last_answer").removeClass('hidden');
+            
+        }
+    });
+
+    jq("#delete_last_answer").click(function() {
+
+        jq("#answer_listing li:last").detach();
+
+        //hide delete answer button if no answers exist
+        if (jq("#answer_listing li").length == 0) {
+            jq("#delete_last_answer").addClass('hidden');
+        }
 
     });
 
 });
+
