@@ -29,10 +29,5 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
-*.xml~
-*.py~
-*.zcml~
-.gitignore~
-*.pt~
-*.css~
-*.js~
+*.[a-z]*~
+
