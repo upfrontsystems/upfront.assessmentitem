@@ -31,6 +31,11 @@
         <div id="answer_template" class="hidden">
         </div>
 
+        <div class="formControls">
+        	<input type="submit" value="Save" class="submit-widget button-field context" name="form.buttons.save" id="form-buttons-save">
+        	<input type="submit" value="Cancel" class="submit-widget button-field standalone" name="form.buttons.cancel" id="form-buttons-cancel">
+        </div>
+
     </form>
 
     <!-- Hidden link to a view URL which will render the view containing the snippet for comments -->
