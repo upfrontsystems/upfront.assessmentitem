@@ -4,9 +4,11 @@ from zope.interface import Interface
 from zope.component.hooks import getSite
 
 from plone.directives import dexterity
+from plone.dexterity.utils import createContentInContainer
 from z3c.form import form, button
 
 from Acquisition import aq_inner
+from Products.statusmessages.interfaces import IStatusMessage
 
 from upfront.assessmentitem import MessageFactory as _
 from upfront.assessmentitem.content.assessmentitem import IAssessmentItem
@@ -30,8 +32,30 @@ class AssessmentItemAddForm(dexterity.AddForm):
 
     @button.buttonAndHandler(_('Save'), name='save')
     def handleAdd(self, action):
-        super(AssessmentItemAddForm, self).handleAdd(self, action)
-    
+        data, errors = self.extractData()
+        if errors:
+            self.status = self.formErrorsMessage
+            return
+        obj = self.createAndAdd(data)
+        if obj is not None:
+            # mark only as finished if we get the new object
+            self._finishedAdd = True
+            IStatusMessage(self.request).addStatusMessage(
+                _(u"Item created"), "info")
+
+        # acquisition wrap object
+        obj = self.context._getOb(obj.id)
+
+        for key in self.request.keys():
+            if not key.startswith('form.widgets.answer'):
+                continue
+            answer = self.request.get(key)
+            createContentInContainer(
+                obj,
+                "upfront.assessmentitem.content.answer",
+                answer=answer
+                )
+
 
 class QuestionEditForm(dexterity.EditForm):
     grok.name('edit')
