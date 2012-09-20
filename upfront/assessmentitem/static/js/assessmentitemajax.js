@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    var answercount = 0;
 
     jq("#add_answer").click(function() {
 
@@ -9,7 +10,16 @@ $(document).ready(function() {
             // create the divs where ajax call with reside
             jq("#answer_template").append('<li><div id="result_answer"></div><div id="result_choice"></div></li>');
     
-            jq("#result_answer").load('++add++upfront.assessmentitem.content.answer #formfield-form-widgets-answer');
+            answercount += 1;
+            answerid = 'form.widgets.answer' + answercount;
+            jq("#result_answer").load(
+                '@@tinymce',
+                {'fieldname': answerid},
+                function() {
+                    var config = new TinyMCEConfig(answerid);
+                    config.init();
+
+                });
             jq("#result_choice").load('++add++upfront.assessmentitem.content.answer #formfield-form-widgets-iscorrect');
 
             // place formatted ajax result in appropriate place
