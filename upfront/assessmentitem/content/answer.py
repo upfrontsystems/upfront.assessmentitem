@@ -18,7 +18,7 @@ class IAnswer(form.Schema):
 
     iscorrect = schema.Bool(
             title=_(u"is correct?"),
-            default=True,
+            default=False,
         )        
 
 class Answer(dexterity.Item):
