@@ -1,5 +1,6 @@
 from five import grok
 
+from zope.interface import Interface
 from zope.component.hooks import getSite
 
 from plone.directives import dexterity
@@ -27,6 +28,11 @@ class AssessmentItemAddForm(dexterity.AddForm):
     kssformname = "kssattr-formname-++add++\
                    upfront.assessmentitem.content.assessmentitem"
 
+    @button.buttonAndHandler(_('Save'), name='save')
+    def handleAdd(self, action):
+        super(AssessmentItemAddForm, self).handleAdd(self, action)
+    
+
 class QuestionEditForm(dexterity.EditForm):
     grok.name('edit')
     grok.context(IAssessmentItem)
@@ -36,3 +42,13 @@ class QuestionEditForm(dexterity.EditForm):
     kssformname = "kssattr-formname-@@edit"
 
 
+class TinyMCEWidget(grok.View):
+    grok.name('tinymce')
+    grok.context(Interface)
+    grok.template('tinymce')
+
+    def update(self):
+        self.fieldname = self.request.get('fieldname')
+        self.content = self.request.get('content', '')
+        self.rows = self.request.get('rows', 5)
+        self.cols = self.request.get('cols', 60)
