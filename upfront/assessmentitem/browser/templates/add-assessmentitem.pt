@@ -11,12 +11,33 @@
         tal:condition="view/status" tal:content="view/status">
     </div>
 
+    <div tal:repeat="error view/widgets/errors">
+        <span tal:content="error/render">error</span>
+        <span tal:content="error/widget/id">widget</span>
+    </div>
+
     <form action="." method="post" id="add-question-form"
         tal:attributes="name view/formname;
                         action request/getURL; enctype view/enctype;
                         class view/kssformname">
 
+        <div tal:define="widget nocall:view/form_instance/widgets/IBasic.title">
+            <metal:block use-macro="context/@@ploneform-macros/field" />
+        </div>
+        
+        <div tal:define="widget nocall:view/form_instance/widgets/questiontype">
+            <metal:block use-macro="context/@@ploneform-macros/field" />
+        </div>
+
         <div tal:define="widget nocall:view/form_instance/widgets/question">
+            <metal:block use-macro="context/@@ploneform-macros/field" />
+        </div>
+
+        <div tal:define="widget nocall:view/form_instance/widgets/IMarks.marks">
+            <metal:block use-macro="context/@@ploneform-macros/field" />
+        </div>
+
+        <div tal:define="widget nocall:view/form_instance/widgets/IResponseTime.responsetime">
             <metal:block use-macro="context/@@ploneform-macros/field" />
         </div>
        
