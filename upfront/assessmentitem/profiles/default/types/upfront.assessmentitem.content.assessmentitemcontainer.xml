@@ -1,30 +1,28 @@
 <?xml version="1.0"?>
-<object name="upfront.assessmentitem.content.question"
+<object name="upfront.assessmentitem.content.assessmentitemcontainer"
    meta_type="Dexterity FTI"
    i18n:domain="upfront.assessmentitem" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">Question</property>
-  <property name="description" i18n:translate="">Question</property>
+  <property name="title" i18n:translate="">AssessmentItemContainer</property>
+  <property name="description"
+    i18n:translate="">Assessment Item Container</property>
   <property name="icon_expr">string:${portal_url}/document_icon.png</property>
-  <property name="factory">upfront.assessmentitem.content.question</property>
-  <property name="global_allow">False</property>
+  <property name="factory">upfront.assessmentitem.content.assessmentitemcontainer</property>
+  <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types">
-    <element value="upfront.assessmentitem.content.answer" />
+    <element value="upfront.assessmentitem.content.assessmentitem" />
   </property>
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">upfront.assessmentitem.content.question.IQuestion</property> 
-  <property name="klass">upfront.assessmentitem.content.question.Question</property>
+  <property name="schema">upfront.assessmentitem.content.assessmentitemcontainer.IAssessmentItemContainer</property> 
+  <property name="klass">upfront.assessmentitem.content.assessmentitemcontainer.AssessmentItemContainer</property>
 
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
-     <element value="upfront.assessmentitem.behaviors.IMarks"/>
-     <element value="upfront.assessmentitem.behaviors.IResponseTime"/>
-     <element value="collective.topictree.behavior.ITopicTags"/>
    </property>
 
   <!-- View information -->

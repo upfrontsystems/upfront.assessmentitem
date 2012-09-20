@@ -12,7 +12,7 @@
   <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types">
-    <element value="upfront.assessmentitem.content.question" />
+    <element value="upfront.assessmentitem.content.answer" />
   </property>
   <property name="allow_discussion">False</property>
 
@@ -23,6 +23,9 @@
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+     <element value="upfront.assessmentitem.behaviors.IMarks"/>
+     <element value="upfront.assessmentitem.behaviors.IResponseTime"/>
+     <element value="collective.topictree.behavior.ITopicTags"/>
    </property>
 
   <!-- View information -->

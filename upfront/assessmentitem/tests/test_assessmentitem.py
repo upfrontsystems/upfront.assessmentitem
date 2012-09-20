@@ -37,22 +37,3 @@ class TestAssessmentItem(UpfrontAssessmentItemTestBase):
             IAssessmentItem.providedBy(new_object),
             'assessmentitem provides wrong interface.')
 
-    def test_assessment_item(self):
-        self._createAssessmentItem()
-        view = self.assessmentitem.restrictedTraverse('@@view')
-        assessment_item = view.assessment_item()
-        self.assertEquals(self.assessmentitem,assessment_item)
-
-    def test_questions(self):
-        self._createAssessmentItem()
-        view = self.assessmentitem.restrictedTraverse('@@view')
-        questions = view.questions()
-        self.assertEquals(self.question,questions[0].getObject())
-
-    def test_marks_string(self):
-        self._createAssessmentItem()
-        view = self.assessmentitem.restrictedTraverse('@@view')
-        marks_string = view.marks_string(1)
-        self.assertEquals(marks_string,'mark')
-        marks_string = view.marks_string(2)
-        self.assertEquals(marks_string,'marks')

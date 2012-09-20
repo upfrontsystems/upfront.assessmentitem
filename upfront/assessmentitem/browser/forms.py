@@ -8,31 +8,31 @@ from z3c.form import form, button
 from Acquisition import aq_inner
 
 from upfront.assessmentitem import MessageFactory as _
-from upfront.assessmentitem.content.question import IQuestion
+from upfront.assessmentitem.content.assessmentitem import IAssessmentItem
 
 from upfront.assessmentitem.interfaces import IUpfrontAssessmentItemLayer
 
 grok.templatedir('templates')
 grok.layer(IUpfrontAssessmentItemLayer)
 
-class QuestionAddForm(dexterity.AddForm):
-    grok.name('upfront.assessmentitem.content.question')
-    grok.template('addquestion')
+class AssessmentItemAddForm(dexterity.AddForm):
+    grok.name('upfront.assessmentitem.content.assessmentitem')
+    grok.template('add-assessmentitem')
     grok.layer(IUpfrontAssessmentItemLayer)
 
     # clear the label
     label = ''
 
-    formname = 'add-question-form'
+    formname = 'add-assessmentitem-form'
     kssformname = "kssattr-formname-++add++\
-                   upfront.assessmentitem.content.question"
+                   upfront.assessmentitem.content.assessmentitem"
 
 class QuestionEditForm(dexterity.EditForm):
     grok.name('edit')
-    grok.context(IQuestion)
-    grok.template('editquestion')
+    grok.context(IAssessmentItem)
+    grok.template('edit-assessmentitem')
 
-    formname = 'edit-question-form'
+    formname = 'edit-assessmentitem-form'
     kssformname = "kssattr-formname-@@edit"
 
 

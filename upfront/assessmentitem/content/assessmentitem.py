@@ -1,51 +1,39 @@
-from five import grok
 from zope import schema
-from Acquisition import aq_inner
+from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
+from five import grok
 from plone.directives import dexterity, form
 from plone.app.textfield import RichText
+from z3c.form.browser.radio import RadioFieldWidget
 
+from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 
 from upfront.assessmentitem import MessageFactory as _
+
+QUESTION_TYPE = SimpleVocabulary(
+    [SimpleTerm(value=u'freeform',
+                title=_(u'Free-form')),
+     SimpleTerm(value=u'multiplechoice',
+                title=_(u'Multiple Choice'))]
+    )
 
 class IAssessmentItem(form.Schema):
     """
     Assessment Item content type
     """
 
-    introduction = RichText(
-            title=_(u"Introduction"),
-            required=False,
+    question = RichText(
+            title=_(u"Question")
         )
+
+    form.widget(questiontype=RadioFieldWidget)
+    questiontype = schema.Choice(
+            title=_(u"Question type"),
+            vocabulary=QUESTION_TYPE,
+        )
+
 
 class AssessmentItem(dexterity.Container):
     grok.implements(IAssessmentItem)
-
-grok.templatedir('templates')
-class View(dexterity.DisplayForm):
-    grok.context(IAssessmentItem)
-    grok.template('viewassessmentitem')
-    grok.require('zope2.View')
-
-    def assessment_item(self):
-        """ returns assessment item
-        """
-        return self.context
-
-    def questions(self):
-        """ return all question objects in the context of assessment item
-        """
-        contentFilter = {
-                        'portal_type':'upfront.assessmentitem.content.question'}
-        questions = self.context.getFolderContents(contentFilter)
-        return questions
-
-    def marks_string(self,mark):
-        """ return mark or marks depending if number of marks is > 1 or not
-        """
-        if int(mark) > 1:
-            return 'marks'
-        else:
-            return 'mark'
 

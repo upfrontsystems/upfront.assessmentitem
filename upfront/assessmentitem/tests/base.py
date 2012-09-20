@@ -47,23 +47,18 @@ class UpfrontAssessmentItemTestBase(unittest.TestCase):
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         self.intids = getUtility(IIntIds)
 
-        self.portal.invokeFactory(
-                              'upfront.assessmentitem.content.assessmentitem', 
-                              'assessmentitem1')
-        assessmentitem1 = self.portal._getOb('assessmentitem1')
-
-    def _createAssessmentItem(self):
+    def _createAssessmentItemContainer(self):
         portal = self.layer['portal']
         setRoles(portal, TEST_USER_ID, ('Manager',))
 
         id = portal.invokeFactory(
-                        'upfront.assessmentitem.content.assessmentitem', 
-                        'assessmentitem', 
-                        title='Assessment Item')
-        self.assessmentitem = portal._getOb(id)
+            'upfront.assessmentitem.content.assessmentitemcontainer',
+            'assessmentitemcontainer', 
+            title='Assessment Item Container')
+        self.assessmentitemcontainer = portal._getOb(id)
 
-        id = self.assessmentitem.invokeFactory(
-                        'upfront.assessmentitem.content.question', 
-                        'question1',
-                        title=u"Question 1")
-        self.question = self.assessmentitem._getOb(id)
+        id = self.assessmentitemcontainer.invokeFactory(
+            'upfront.assessmentitem.content.assessmentitem', 
+            'assessmentitem1',
+            title=u"Assessment Item 1")
+        self.assessmentitem = self.assessmentitemcontainer._getOb(id)
