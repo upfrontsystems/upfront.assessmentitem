@@ -42,11 +42,8 @@
         </div>
        
         <div id="answer_listing">
-            <ul>
-            </ul>
-            <div id ="delete_last_answer" class="button hidden">Delete Answer</div>
         </div> 
-        <div id ="add_answer" class="button">Add a multiple-choice answer</div>
+        <input type="button" id ="add_answer" value="Add a multiple-choice answer"/>
 
         <!-- used as scratchpad, a place where ajax result is placed and then moved-->
         <div id="answer_template" class="hidden">
