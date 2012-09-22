@@ -1,20 +1,4 @@
-div .button {
-    display: inline-block;
-    background: #efefef; 
-    padding: 0.5em;
-    margin: 1em 0;
-    border: 1px solid black;
-    text-decoration: none;
-    color: black;
-    height: 20px;
-    width: 90px;
-}
-
-#add_answer {
-    width: 180px;
-}
-
-#content textarea {
+#formfield-form-widgets-question textarea {
     height: 100px;
 }
 
