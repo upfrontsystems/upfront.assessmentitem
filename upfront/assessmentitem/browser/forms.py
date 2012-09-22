@@ -73,8 +73,8 @@ class AnswerForm(grok.View):
 
     def update(self):
         self.answerid = self.request.get('answerid')
-        self.answerfieldname = 'form.widgets.%s.answer' % self.answerid
-        self.iscorrectfieldname = 'form.widgets.%s.iscorrect' % self.answerid
+        self.answerfieldname = 'form.widgets.%s-answer' % self.answerid
+        self.iscorrectfieldname = 'form.widgets.%s-iscorrect' % self.answerid
         self.content = self.request.get('content', '')
         self.rows = self.request.get('rows', 5)
         self.cols = self.request.get('cols', 60)

@@ -12,7 +12,7 @@ $(document).ready(function() {
             data: {'answerid': answerid},
             success: function(data) {
                 $("#answer_listing").append(data);
-                tinymceid = 'form.widgets.' + answerid + '.answer';
+                tinymceid = 'form.widgets.' + answerid + '-answer';
                 var config = new TinyMCEConfig(tinymceid);
                 config.init();
                 $('#' + answerid + " .delete").click(function() {
