@@ -1,0 +1,19 @@
+<div id="answer1" tal:attributes="id view/answerid">
+    <div class="answer">
+        <tal:define define="inputname view/answerfieldname;
+                            inputvalue view/content;
+                            rows view/rows;
+                            cols view/cols;
+                            ">
+            <div metal:use-macro="context/wysiwyg_support/macros/wysiwygEditorBox"/>
+        </tal:define>
+    </div>
+    <div class="iscorrect">
+        Is this answer correct?
+        <input type="radio" name="iscorrect" value="Yes"
+            tal:attributes="name view/iscorrectfieldname"/>Yes
+        <input type="radio" name="iscorrect" value="No" checked="checked"
+            tal:attributes="name view/iscorrectfieldname"/>No
+    </div>
+    <input type="button" class="delete" value="Delete Answer">
+</div>
