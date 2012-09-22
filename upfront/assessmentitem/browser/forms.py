@@ -66,13 +66,15 @@ class QuestionEditForm(dexterity.EditForm):
     kssformname = "kssattr-formname-@@edit"
 
 
-class TinyMCEWidget(grok.View):
-    grok.name('tinymce')
+class AnswerForm(grok.View):
+    grok.name('upfront.assessmentitem.answerform')
     grok.context(Interface)
-    grok.template('tinymce')
+    grok.template('answerform')
 
     def update(self):
-        self.fieldname = self.request.get('fieldname')
+        self.answerid = self.request.get('answerid')
+        self.answerfieldname = 'form.widgets.%s.answer' % self.answerid
+        self.iscorrectfieldname = 'form.widgets.%s.iscorrect' % self.answerid
         self.content = self.request.get('content', '')
         self.rows = self.request.get('rows', 5)
         self.cols = self.request.get('cols', 60)
