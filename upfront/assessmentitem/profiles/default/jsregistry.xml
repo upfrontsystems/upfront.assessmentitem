@@ -5,7 +5,7 @@
                 compression="none"
                 cookable="True"
                 enabled="True"
-                id="++resource++upfront.assessmentitem/js/assessmentitemajax.js"
+                id="++resource++upfront.assessmentitem/js/assessmentitem.js"
                 inline="False"/>
 
 </object>
