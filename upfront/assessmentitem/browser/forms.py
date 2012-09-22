@@ -46,14 +46,28 @@ class AssessmentItemAddForm(dexterity.AddForm):
         # acquisition wrap object
         obj = self.context._getOb(obj.id)
 
+        # group answer data on request by key
+        data = {}
+
         for key in self.request.keys():
             if not key.startswith('form.widgets.answer'):
                 continue
-            answer = self.request.get(key)
+            answerid, fieldname = key.split('-')
+            data.setdefault(answerid, {})
+            fieldset = data.get(answerid)
+            fieldset[fieldname] = self.request.get(key)
+
+        # sort the keys to preserve order
+        keys = data.keys()
+        keys.sort()
+
+        # create answers
+        for key in keys:
+            values = data[key]
             createContentInContainer(
                 obj,
                 "upfront.assessmentitem.content.answer",
-                answer=answer
+                **values
                 )
 
 
