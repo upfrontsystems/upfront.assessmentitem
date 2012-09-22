@@ -10,10 +10,10 @@
     </div>
     <div class="iscorrect">
         Is this answer correct?
-        <input type="radio" name="iscorrect" value="Yes"
-            tal:attributes="name view/iscorrectfieldname"/>Yes
-        <input type="radio" name="iscorrect" value="No" checked="checked"
-            tal:attributes="name view/iscorrectfieldname"/>No
+        <input type="radio" name="iscorrect:boolean" value="True"
+            tal:attributes="name string:${view/iscorrectfieldname}:boolean"/>Yes
+        <input type="radio" name="iscorrect:boolean" value="False" checked="checked"
+            tal:attributes="name string:${view/iscorrectfieldname}:boolean"/>No
     </div>
     <input type="button" class="delete" value="Delete Answer">
 </div>
