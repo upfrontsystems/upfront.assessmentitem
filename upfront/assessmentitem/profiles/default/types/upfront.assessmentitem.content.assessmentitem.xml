@@ -4,12 +4,12 @@
    i18n:domain="upfront.assessmentitem" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">AssessmentItem</property>
+  <property name="title" i18n:translate="">Assessment Item</property>
   <property name="description"
     i18n:translate="">Assessment Item</property>
   <property name="icon_expr">string:${portal_url}/document_icon.png</property>
   <property name="factory">upfront.assessmentitem.content.assessmentitem</property>
-  <property name="global_allow">True</property>
+  <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types">
     <element value="upfront.assessmentitem.content.answer" />
