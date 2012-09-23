@@ -71,7 +71,7 @@ class AssessmentItemAddForm(dexterity.AddForm):
                 )
 
 
-class QuestionEditForm(dexterity.EditForm):
+class AssessmentItemEditForm(dexterity.EditForm):
     grok.name('edit')
     grok.context(IAssessmentItem)
     grok.template('edit-assessmentitem')
