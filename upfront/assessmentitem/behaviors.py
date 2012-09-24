@@ -13,6 +13,7 @@ class IMarks(form.Schema):
     marks = schema.Int(
             title=_(u"Marks"),
             required=False,
+            default=0,
         )
 
 class IResponseTime(form.Schema):
@@ -22,6 +23,7 @@ class IResponseTime(form.Schema):
     responsetime = schema.Int(
             title=_(u"Response Time"),
             required=False,
+            default=0,
         )
 
 # Mark these interfaces as form field providers
