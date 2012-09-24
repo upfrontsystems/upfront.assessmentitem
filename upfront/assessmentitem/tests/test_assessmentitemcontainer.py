@@ -48,8 +48,7 @@ class TestAssessmentItemContainer(UpfrontAssessmentItemTestBase):
 
     def test_assessmentitems(self):
         self._createAssessmentItemContainer()
-        view = self.assessmentitemcontainer.restrictedTraverse('@@view')
-        items = view.assessmentitems()
+        items = self.assessmentitemcontainer.assessmentitems()
         self.assertEquals([self.assessmentitem],items)
 
     def test_marks_string(self):
