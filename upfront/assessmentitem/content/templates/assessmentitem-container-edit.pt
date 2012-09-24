@@ -24,13 +24,24 @@
                 <div tal:repeat="item context/assessmentitems">
                     <span class="itemnumber"><span tal:replace="repeat/item/number">1</span>. </span>
                     <tal:content tal:content="structure item/question/output" />
-                    <div class="marks" tal:condition="item/marks|nothing">
-                        [<span tal:replace="item/marks" />
-                        <span tal:content="python:item.marks > 1 and 'marks' or 'mark'" />]
+                    <div class="item-info">
+                        <span tal:content="python:item.created().strftime('%d %B %Y')">1 January 2000</span>
+                        &middot;
+                        <span tal:content="python:'%s %s' % (item.marks, item.marks > 1 and 'marks' or 'mark')">1 mark</span>
+                        &middot;
+                        <span tal:content="python:'%s %s' % (item.responsetime, item.responsetime > 1 and 'mins' or 'min')">1 min</span>
                     </div>
+                    <div class="item-actions">
+                        <a title="View" tal:attributes="href item/absolute_url" i18n:translate="">View</a>
+                        &middot;
+                        <a title="Edit" class="assessmentitem-edit-link" tal:attributes="href string:${item/absolute_url}/edit" i18n:translate="">Edit</a>
+                        &middot;
+                        <a title="Delete" tal:attributes="href item/absolute_url" i18n:translate="">Delete</a>
+                    </div>
+                    <hr class="item-separator"/>
                 </div>
 
-                <input id="add-assessmentitem" type="button" name="add-assessmentitem" value="Add assessment item" href="++add++upfront.assessmentitem.content.assessmentitem"/>
+                <input id="add-assessmentitem" class="assessmentitem-edit-link" type="button" name="add-assessmentitem" value="Add assessment item" href="++add++upfront.assessmentitem.content.assessmentitem"/>
 
             </metal:fields>
         </metal:block>
