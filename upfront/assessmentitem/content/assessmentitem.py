@@ -37,9 +37,16 @@ class IAssessmentItem(form.Schema):
             vocabulary=QUESTION_TYPE,
         )
 
-
 class AssessmentItem(dexterity.Container):
     grok.implements(IAssessmentItem)
+
+    def answers(self):
+        """ return all answers
+        """
+        contentFilter = {
+            'portal_type':'upfront.assessmentitem.content.answer'
+            }
+        return self.getFolderContents(contentFilter, full_objects=True)
 
 
 grok.templatedir('templates')
