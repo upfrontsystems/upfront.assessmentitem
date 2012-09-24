@@ -12,8 +12,7 @@
 
   <!-- Grok the package to initialise schema interfaces and content classes -->
   <grok:grok package="." />
-  <include package=".browser" />
-            
+
   <!-- Include the sub directory content -->
   <include package=".content" />
 
