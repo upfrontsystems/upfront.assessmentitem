@@ -20,6 +20,16 @@
                 <div tal:define="widget nocall:view/form_instance/widgets/introduction">
                     <metal:block use-macro="context/@@ploneform-macros/field" />
                 </div>
+
+                <div tal:repeat="item context/assessmentitems">
+                    <span class="itemnumber"><span tal:replace="repeat/item/number">1</span>. </span>
+                    <tal:content tal:content="structure item/question/output" />
+                    <tal:marks tal:condition="item/marks|nothing">
+                        <span tal:content="item/marks" />
+                        <span tal:content="python:view.marks_string(item.marks)" />
+                    </tal:marks>
+                </div>
+
                 <input id="add-assessmentitem" type="button" name="add-assessmentitem" value="Add assessment item" href="++add++upfront.assessmentitem.content.assessmentitem"/>
 
             </metal:fields>

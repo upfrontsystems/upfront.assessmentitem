@@ -22,12 +22,6 @@ class IAssessmentItemContainer(form.Schema):
 class AssessmentItemContainer(dexterity.Container):
     grok.implements(IAssessmentItemContainer)
 
-grok.templatedir('templates')
-class View(dexterity.DisplayForm):
-    grok.context(IAssessmentItemContainer)
-    grok.template('assessmentitem-container-view')
-    grok.require('zope2.View')
-
     def assessmentitems(self):
         """ return all assessment items in the container
         """
@@ -35,6 +29,12 @@ class View(dexterity.DisplayForm):
             'portal_type':'upfront.assessmentitem.content.assessmentitem'
             }
         return self.context.getFolderContents(contentFilter, full_objects=True)
+
+grok.templatedir('templates')
+class View(dexterity.DisplayForm):
+    grok.context(IAssessmentItemContainer)
+    grok.template('assessmentitem-container-view')
+    grok.require('zope2.View')
 
     def marks_string(self, mark):
         """ return mark or marks depending if number of marks is > 1 or not
