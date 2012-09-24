@@ -12,7 +12,16 @@
     <h1 class="documentFirstHeading" tal:content="view/label | nothing" />
 
     <div id="content-core">
-        <metal:block use-macro="context/@@assessmentitem-macros/form"/>
+        <metal:block use-macro="context/@@assessmentitem-macros/form">
+            <metal:answers metal:fill-slot="answers">
+                <tal:answer tal:repeat="answer context/answers">
+                    <tal:dummy tal:define="dummy python:request.set('answerid', repeat['answer'].index);
+                                           dummy python:request.set('content', answer.answer)">
+                    <tal:form tal:replace="structure context/@@upfront.assessmentitem.answerform"/>
+                    </tal:dummy>
+                </tal:answer>
+            </metal:answers>
+        </metal:block>
     </div>
 
     </metal:main>
