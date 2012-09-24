@@ -12,7 +12,7 @@
     <div id="content-core">
 
             <h1>Assessment Item Container View</h1>
-            <div tal:content="structure context/introduction/output" />
+            <div tal:content="structure context/introduction/output|nothing" />
 
             <div>Assessment Items:</div><br />
 
