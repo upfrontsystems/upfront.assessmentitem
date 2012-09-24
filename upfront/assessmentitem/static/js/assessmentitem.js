@@ -1,9 +1,29 @@
 $(document).ready(function() {
 
+    var url = location.href;
+
+    $('#add-assessmentitem').prepOverlay({
+        subtype: 'ajax',
+        filter: '#content>*',
+        formselector: '#form',
+        noform: 'reload',
+        redirect: url,
+        closeselector: '[name=form.buttons.cancel]',
+        config: {
+            onLoad: function() {
+                $("#add_answer").click(add_answer);
+                tinymceid = 'form.widgets.question';
+                delete TinyMCEConfig[tinymceid];
+                var config = new TinyMCEConfig(tinymceid);
+                config.init();
+            }
+        }
+    });
+
+
     var answercount = 0;
 
-    $("#add_answer").click(function() {
-
+    function add_answer() {
         answercount += 1;
         answerid = 'answer' + answercount;
 
@@ -20,8 +40,9 @@ $(document).ready(function() {
                 });
             }
         });
+    }
 
-    });
+    $("#add_answer").click(add_answer);
 
 });
 
