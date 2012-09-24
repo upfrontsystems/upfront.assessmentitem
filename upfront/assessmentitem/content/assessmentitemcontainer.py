@@ -28,7 +28,7 @@ class AssessmentItemContainer(dexterity.Container):
         contentFilter = {
             'portal_type':'upfront.assessmentitem.content.assessmentitem'
             }
-        return self.context.getFolderContents(contentFilter, full_objects=True)
+        return self.getFolderContents(contentFilter, full_objects=True)
 
 grok.templatedir('templates')
 class View(dexterity.DisplayForm):
