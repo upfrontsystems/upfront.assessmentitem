@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="upfront.assessmentitem"
+      lang="en">
+
+<body>
+    <metal:main fill-slot="main">
+
+    <h1 class="documentFirstHeading" tal:content="view/label | nothing" />
+
+    <div id="content-core">
+        <metal:block use-macro="context/@@ploneform-macros/titlelessform">
+            <metal:fields fill-slot="fields">
+                <div tal:define="widget nocall:view/form_instance/widgets/IBasic.title">
+                    <metal:block use-macro="context/@@ploneform-macros/field" />
+                </div>
+                <div tal:define="widget nocall:view/form_instance/widgets/introduction">
+                    <metal:block use-macro="context/@@ploneform-macros/field" />
+                </div>
+                <input id="add-assessmentitem" type="button" name="add-assessmentitem" value="Add assessment item" href="++add++upfront.assessmentitem.content.assessmentitem"/>
+
+            </metal:fields>
+        </metal:block>
+    </div>
+
+    </metal:main>
+</body>
+</html>

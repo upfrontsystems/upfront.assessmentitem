@@ -44,3 +44,6 @@ class View(dexterity.DisplayForm):
         else:
             return 'mark'
 
+class EditForm(dexterity.EditForm):
+    grok.context(IAssessmentItemContainer)
+    grok.template('assessmentitem-container-edit')
