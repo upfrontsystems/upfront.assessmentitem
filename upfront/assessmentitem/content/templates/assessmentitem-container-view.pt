@@ -17,10 +17,10 @@
             <div tal:repeat="item context/assessmentitems">
                 <span class="itemnumber"><span tal:replace="repeat/item/number">1</span>. </span>
                 <tal:content tal:content="structure item/question/output" />
-                <tal:marks tal:condition="item/marks|nothing">
-                    <span tal:content="item/marks" />
-                    <span tal:content="python:view.marks_string(item.marks)" />
-                </tal:marks>
+                <div class="marks" tal:condition="item/marks|nothing">
+                    [<span tal:replace="item/marks" />
+                    <span tal:content="python:item.marks > 1 and 'marks' or 'mark'" />]
+                </div>
             </div>
 
     </div>
