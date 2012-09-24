@@ -42,7 +42,10 @@ $(document).ready(function() {
         });
     }
 
-    $("#add_answer").click(add_answer);
+    $('#add_answer').click(add_answer);
 
+    $('#answer_listing .delete').click(function() {
+        $(this).parent().remove();    
+    });
 });
 
