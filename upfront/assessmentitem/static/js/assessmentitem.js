@@ -13,7 +13,7 @@ $(document).ready(function() {
             onLoad: function() {
                 $("#add_answer").click(add_answer);
                 tinymceid = 'form.widgets.question';
-                delete TinyMCEConfig[tinymceid];
+                delete InitializedTinyMCEInstances[tinymceid];
                 var config = new TinyMCEConfig(tinymceid);
                 config.init();
             }
