@@ -36,14 +36,6 @@ class View(dexterity.DisplayForm):
     grok.template('assessmentitem-container-view')
     grok.require('zope2.View')
 
-    def marks_string(self, mark):
-        """ return mark or marks depending if number of marks is > 1 or not
-        """
-        if int(mark) > 1:
-            return 'marks'
-        else:
-            return 'mark'
-
 class EditForm(dexterity.EditForm):
     grok.context(IAssessmentItemContainer)
     grok.template('assessmentitem-container-edit')
