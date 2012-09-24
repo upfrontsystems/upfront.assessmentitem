@@ -14,13 +14,13 @@
             <h1>Assessment Item Container View</h1>
             <div tal:content="structure context/introduction/output|nothing" />
 
-            <div>Assessment Items:</div><br />
-
             <div tal:repeat="item view/assessmentitems">
                 <span tal:content="repeat/item/number" /><span>.</span>
                 <span tal:content="structure item/question/output" />
-                <span tal:content="item/marks" />
-                <span tal:content="python:view.marks_string(item.marks)" />
+                <tal:marks tal:condition="item/marks|nothing">
+                    <span tal:content="item/marks" />
+                    <span tal:content="python:view.marks_string(item.marks)" />
+                </tal:marks>
             </div>
 
     </div>
