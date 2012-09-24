@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     var url = location.href;
 
-    $('#add-assessmentitem').prepOverlay({
+    $('.assessmentitem-edit-link').prepOverlay({
         subtype: 'ajax',
         filter: '#content>*',
         formselector: '#form',
