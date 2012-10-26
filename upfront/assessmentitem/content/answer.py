@@ -2,6 +2,8 @@ from five import grok
 
 from zope import schema
 
+from z3c.form.object import registerFactoryAdapter
+
 from plone.directives import dexterity, form
 from plone.app.textfield import RichText
 
@@ -23,3 +25,6 @@ class IAnswer(form.Schema):
 
 class Answer(dexterity.Item):
     grok.implements(IAnswer)
+
+registerFactoryAdapter(IAnswer, Answer)
+
