@@ -17,16 +17,34 @@ class IAnswersWidget(interfaces.IWidget):
 class AnswersWidget(MultiWidget):
     """Answers widget implementation."""
 
-    @button.buttonAndHandler(_('Add'), name='add',
+    def updateActions(self):
+        """ Add remove button for each answer """
+        MultiWidget.updateActions(self)
+        for widget in self.widgets:
+            but = button.Button('%s.remove' % widget.name,
+                                title=u'Remove Answer')
+            self.buttons += button.Buttons(but)
+
+            handler = button.Handler(but, self.__class__.handleRemove)
+            self.handlers.addHandler(but, handler)
+        self.actions.update()
+
+    @button.buttonAndHandler(_('Add Answer'), name='add',
                              condition=attrgetter('allowAdding'))
     def handleAdd(self, action):
         self.appendAddingWidget()
 
-    @button.buttonAndHandler(_('Remove selected'), name='remove',
-                             condition=attrgetter('allowRemoving'))
     def handleRemove(self, action):
-        self.widgets = [widget for widget in self.widgets
-                        if ('%s.remove' % (widget.name)) not in self.request]
+        wlist = []
+        for widget in self.widgets:
+            key = '%s.buttons.%s.remove' % (self.name, widget.name)
+            if key in self.request:
+                field_name = action.field.getName()
+                del self.actions[field_name]
+                del self.buttons[field_name]
+            else:
+                wlist.append(widget)
+        self.widgets = wlist
         self.value = [widget.value for widget in self.widgets]
 
 @zope.interface.implementer(interfaces.IFieldWidget)
