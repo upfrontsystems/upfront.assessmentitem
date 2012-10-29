@@ -21,6 +21,9 @@ class AnswersWidget(MultiWidget):
         """ Add remove button for each answer """
         MultiWidget.updateActions(self)
         for widget in self.widgets:
+            key = '%s.remove' % widget.name
+            if key in self.buttons.keys():
+                continue
             but = button.Button('%s.remove' % widget.name,
                                 title=u'Remove Answer')
             self.buttons += button.Buttons(but)
