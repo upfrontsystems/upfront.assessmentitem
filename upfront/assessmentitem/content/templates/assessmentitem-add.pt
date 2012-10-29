@@ -30,7 +30,9 @@
             </div>
         
             <div id="answer_listing">
-                <metal:answers define-slot="answers"/>
+                <metal:answers define-slot="answers">
+                <input type="hidden" name="form.widgets.answers.count" value ="0" originalvalue="0"/>
+                </metal:answers>
             </div> 
             <input type="button" id ="add_answer" value="Add a multiple-choice answer"/>
         </metal:fields>
