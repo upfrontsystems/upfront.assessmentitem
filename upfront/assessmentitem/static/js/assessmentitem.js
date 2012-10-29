@@ -33,15 +33,17 @@ $(document).ready(function() {
 
 
     function add_answer() {
-        answercount += 1;
-        answerid = 'answer' + answercount;
+        answerid = answercount;
 
         $.ajax({
             url: '@@upfront.assessmentitem.answerform',
             data: {'answerid': answerid},
             success: function(data) {
                 $("#answer_listing").append(data);
-                var tinymceid = 'form.widgets.' + answerid + '-answer';
+                $("input[name='form.widgets.answers.count']").attr('value', answercount);
+                answercount += 1;
+                $("input[name='form.widgets.answers.count']").attr('originalvalue', answercount);
+                var tinymceid = 'form.widgets.answers.' + answerid + '.widgets.answer';
                 var config = new TinyMCEConfig(tinymceid);
                 config.init();
                 $('#' + answerid + " .delete").click(function() {
