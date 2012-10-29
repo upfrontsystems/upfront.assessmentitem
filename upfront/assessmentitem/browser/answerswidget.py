@@ -3,6 +3,7 @@ from operator import attrgetter
 from z3c.form.browser.multi import MultiWidget
 
 import zope.interface
+from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 
 from z3c.form.i18n import MessageFactory as _
 from z3c.form import interfaces
@@ -16,6 +17,26 @@ class IAnswersWidget(interfaces.IWidget):
 
 class AnswersWidget(MultiWidget):
     """Answers widget implementation."""
+
+    zope.interface.implements(IAnswersWidget)
+
+    input_template = ViewPageTemplateFile(
+        "templates/answerswidget_input.pt")
+
+    display_template = ViewPageTemplateFile(
+        "templates/answerswidget_display.pt")
+
+    def render(self):
+        """ widgetTemplate registrations in answerswidget.zcml is not
+            working so force the widget templates that must be used here
+        """
+        if self.mode == interfaces.INPUT_MODE:
+            # Enforce template and do not query it from the widget
+            # template factory 
+            self.template = self.input_template
+        elif self.mode == interface.DISPLAY_MODE:
+            self.template = self.display_template
+        return MultiWidget.render(self)
 
     def updateActions(self):
         """ Add remove button for each answer """
