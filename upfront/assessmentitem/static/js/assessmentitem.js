@@ -4,6 +4,11 @@ $(document).ready(function() {
 
     var answercount = 0;
 
+    $('a.showintro').click(function() {
+        $('#introduction').toggle();
+        return false;
+    });
+
     $('.assessmentitem-edit-link').prepOverlay({
         subtype: 'ajax',
         filter: '#content>*',
