@@ -1,3 +1,7 @@
+.introhelp {
+    float:right;
+}
+
 #formfield-form-widgets-question iframe,
 #answer_listing iframe {
     box-shadow: none;
