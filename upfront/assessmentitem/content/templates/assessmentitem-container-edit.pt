@@ -14,10 +14,11 @@
     <div id="content-core">
         <metal:block use-macro="context/@@ploneform-macros/titlelessform">
             <metal:fields fill-slot="fields">
-                <div tal:define="widget nocall:view/form_instance/widgets/IBasic.title">
-                    <metal:block use-macro="context/@@ploneform-macros/field" />
+                <div style="">
+                    <a class="showintro" href="#" i18n:translate="label_add_intro">Add a common introduction to this question</a> 
+                    <span i18n:translate="label_intro_optional">(optional)</span>
                 </div>
-                <div tal:define="widget nocall:view/form_instance/widgets/introduction">
+                <div id="introduction" class="hidden" tal:define="widget nocall:view/form_instance/widgets/introduction">
                     <metal:block use-macro="context/@@ploneform-macros/field" />
                 </div>
 
@@ -41,7 +42,7 @@
                     <hr class="item-separator"/>
                 </div>
 
-                <input id="add-assessmentitem" class="assessmentitem-edit-link" type="button" name="add-assessmentitem" value="Add assessment item" href="++add++upfront.assessmentitem.content.assessmentitem"/>
+                <input id="add-assessmentitem" class="assessmentitem-edit-link" type="button" name="add-assessmentitem" value="Add question" href="++add++upfront.assessmentitem.content.assessmentitem" i18n:attributes="value"/>
 
             </metal:fields>
         </metal:block>
