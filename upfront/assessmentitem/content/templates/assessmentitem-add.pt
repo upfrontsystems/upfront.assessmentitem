@@ -9,11 +9,23 @@
 
     <metal:block use-macro="context/@@ploneform-macros/titlelessform">
         <metal:fields fill-slot="fields">
-            <div tal:define="widget nocall:view/form_instance/widgets/IBasic.title">
-                <metal:block use-macro="context/@@ploneform-macros/field" />
+            <div class="field introduction">
+                <label class="horizontal" i18n:translate="label_introduction_optional">
+                    Introduction (optional)
+                </label>
+                <div>
+                    <a class="showintro" href="#" i18n:translate="label_add_intro">Add a common introduction to this question</a> 
+                </div>
+                <div>
+                    <h3>OR</h3>
+                    <a class="showintro" href="#" i18n:translate="label_add_intro">Select an existing introduction</a> 
+                </div>
+                <div id="introduction" class="hidden" tal:define="widget nocall:view/form_instance/widgets/introduction">
+                    <metal:block use-macro="context/@@ploneform-macros/field" />
+                </div>
             </div>
-            
-            <div tal:define="widget nocall:view/form_instance/widgets/questiontype">
+
+            <div class="hidden" tal:define="widget nocall:view/form_instance/widgets/questiontype">
                 <metal:block use-macro="context/@@ploneform-macros/field" />
             </div>
 
