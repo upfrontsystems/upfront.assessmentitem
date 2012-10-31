@@ -7,10 +7,13 @@ from five import grok
 from plone.directives import dexterity, form
 from plone.dexterity.utils import createContentInContainer
 from plone.app.textfield import RichText
+from plone.formwidget.contenttree import ObjPathSourceBinder
 from z3c.form.browser.radio import RadioFieldWidget
 from z3c.form import button
+from z3c.relationfield import RelationChoice
 
 from Acquisition import aq_inner
+from Products.ATContentTypes.interfaces.document import IATDocument
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 
@@ -29,6 +32,17 @@ class IAssessmentItem(form.Schema):
     """
     Assessment Item content type
     """
+
+    introduction = RelationChoice(
+            title=_(u"Introduction"),
+            description=_(u"A common introduction to a serious of "
+                           "related questions, for example a poem "
+                           "or image that are referred to by more than "
+                           "one question"),
+            source=ObjPathSourceBinder(
+                object_provides=IATDocument.__identifier__),
+            required=False,
+        )
 
     question = RichText(
             title=_(u"Question")
@@ -69,6 +83,7 @@ class IAnswersField(Interface):
 
 class AssessmentItemAddForm(dexterity.AddForm):
     grok.name('upfront.assessmentitem.content.assessmentitem')
+    grok.template('assessmentitem-add')
 
 class AssessmentItemEditForm(dexterity.EditForm):
     grok.name('edit')
