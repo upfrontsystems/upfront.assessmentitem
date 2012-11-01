@@ -13,8 +13,7 @@ $(document).ready(function() {
         subtype: 'ajax',
         filter: '#content>*',
         formselector: '#form',
-        noform: 'reload',
-        redirect: url,
+        noform: 'close',
         closeselector: '[name=form.buttons.cancel]',
         config: {
             onLoad: function() {
@@ -23,6 +22,10 @@ $(document).ready(function() {
                 var config = new TinyMCEConfig(tinymceid);
                 config.init();
             }
+        },
+        afterpost: function(resp, data) {
+            console.log(resp);
+            console.log(data);
         }
     });
 
