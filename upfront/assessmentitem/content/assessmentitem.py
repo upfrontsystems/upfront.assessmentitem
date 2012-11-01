@@ -13,12 +13,12 @@ from z3c.form import button
 from z3c.relationfield import RelationChoice
 
 from Acquisition import aq_inner
-from Products.ATContentTypes.interfaces.document import IATDocument
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 
 from upfront.assessmentitem import MessageFactory as _
 from upfront.assessmentitem.content.answer import IAnswer
+from upfront.assessmentitem.content.introtext import IIntroText
 from upfront.assessmentitem.browser.answerswidget import AnswersFieldWidget
 
 QUESTION_TYPE = SimpleVocabulary(
@@ -40,7 +40,7 @@ class IAssessmentItem(form.Schema):
                            "or image that are referred to by more than "
                            "one question"),
             source=ObjPathSourceBinder(
-                object_provides=IATDocument.__identifier__),
+                object_provides=IIntroText.__identifier__),
             required=False,
         )
 

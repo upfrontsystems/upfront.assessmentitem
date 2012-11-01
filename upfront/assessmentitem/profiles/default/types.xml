@@ -11,4 +11,5 @@
   <object name="upfront.assessmentitem.content.assessmentitemcontainer" meta_type="Dexterity FTI" />
   <object name="upfront.assessmentitem.content.assessmentitem" meta_type="Dexterity FTI" />
   <object name="upfront.assessmentitem.content.answer" meta_type="Dexterity FTI" />
+  <object name="upfront.assessmentitem.content.introtext" meta_type="Dexterity FTI" />
 </object>
