@@ -9,6 +9,23 @@ $(document).ready(function() {
         return false;
     });
 
+    $('a.add-intro-link').prepOverlay({
+        subtype: 'ajax',
+        filter: '#content>*',
+        formselector: '#form',
+        noform: 'reload',
+        redirect: url,
+        closeselector: '[name=form.buttons.cancel]',
+        config: {
+            onLoad: function() {
+                var tinymceid = 'form.widgets.introduction';
+                delete InitializedTinyMCEInstances[tinymceid];
+                var config = new TinyMCEConfig(tinymceid);
+                config.init();
+            }
+        }
+    });
+
     $('.assessmentitem-edit-link').prepOverlay({
         subtype: 'ajax',
         filter: '#content>*',

@@ -14,7 +14,7 @@
                     Introduction (optional)
                 </label>
                 <div>
-                    <a class="showintro" href="#" i18n:translate="label_add_intro">Add a common introduction to this question</a> 
+                    <a class="add-intro-link" i18n:translate="label_add_intro" href="++add++upfront.assessmentitem.content.introtext">Add a common introduction to this question</a> 
                 </div>
                 <div>
                     <h3>OR</h3>
