@@ -10,7 +10,7 @@ class IIntroText(form.Schema):
     """ Introduction to a set of related questions
     """
 
-    introdution = RichText(
+    introduction = RichText(
         title=_(u"Introduction")
     )
 
