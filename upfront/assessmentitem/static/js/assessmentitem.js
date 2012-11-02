@@ -9,7 +9,7 @@ $(document).ready(function() {
         return false;
     });
 
-    $('a.add-intro-link').prepOverlay({
+    $('input.add-intro-button').prepOverlay({
         subtype: 'ajax',
         filter: '#content>*',
         formselector: '#form',
@@ -24,8 +24,14 @@ $(document).ready(function() {
             }
         },
         afterpost: function(resp, data) {
-            console.log(resp);
-            console.log(data);
+            var div = $(resp),
+                path = ($('#path', div).attr('data-path'));
+            $('#introtext').html(
+                $('#form-widgets-introduction', div).html()
+            );
+            $('#form-widgets-introduction').attr('value', path);
+            $('#intro-actions').hide();
+            $('#intro-selected').show();
         }
     });
 
