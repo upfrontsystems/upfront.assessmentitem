@@ -1,7 +1,11 @@
+#intro-actions a {
+    display: block;
+}
 .introhelp {
     float:right;
 }
 
+#formfield-form-widgets-introduction iframe,
 #formfield-form-widgets-question iframe,
 #answer_listing iframe {
     box-shadow: none;
@@ -10,6 +14,7 @@
 #formfield-form-widgets-introduction textarea,
 #formfield-form-widgets-question textarea {
     height: 100px;
+    width: 90%;
 }
 
 .hidden,
