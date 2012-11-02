@@ -4,12 +4,13 @@ $(document).ready(function() {
 
     var answercount = 0;
 
-    $('a.showintro').click(function() {
-        $('#introduction').toggle();
+    $('input.remove-intro-button').click(function() {
+        $('#intro-selected').hide();
+        $('#intro-actions').show();
         return false;
     });
 
-    $('input.add-intro-button').prepOverlay({
+    var config = {
         subtype: 'ajax',
         filter: '#content>*',
         formselector: '#form',
@@ -25,15 +26,20 @@ $(document).ready(function() {
         },
         afterpost: function(resp, data) {
             var div = $(resp),
-                path = ($('#path', div).attr('data-path'));
+                path = $('#path', div).attr('data-path'),
+                href = $('#url', div).attr('data-url');
             $('#introtext').html(
                 $('#form-widgets-introduction', div).html()
             );
             $('#form-widgets-introduction').attr('value', path);
             $('#intro-actions').hide();
             $('#intro-selected').show();
+            $('#intro-selected input.edit-intro-button').attr('href', href + '/edit');
+            $('input.edit-intro-button').prepOverlay(config);
         }
-    });
+    }
+
+    $('input.add-intro-button').prepOverlay(config);
 
     $('.assessmentitem-edit-link').prepOverlay({
         subtype: 'ajax',
