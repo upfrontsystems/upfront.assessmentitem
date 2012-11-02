@@ -34,7 +34,7 @@ class AnswersWidget(MultiWidget):
             # Enforce template and do not query it from the widget
             # template factory 
             self.template = self.input_template
-        elif self.mode == interface.DISPLAY_MODE:
+        elif self.mode == interfaces.DISPLAY_MODE:
             self.template = self.display_template
         return MultiWidget.render(self)
 
