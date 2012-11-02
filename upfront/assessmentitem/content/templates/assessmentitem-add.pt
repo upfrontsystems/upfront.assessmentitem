@@ -26,11 +26,11 @@
                 </div>
             </div>
 
-            <div class="hidden" tal:define="widget nocall:view/form_instance/widgets/questiontype">
+            <div tal:define="widget nocall:view/form_instance/widgets/question">
                 <metal:block use-macro="context/@@ploneform-macros/field" />
             </div>
 
-            <div tal:define="widget nocall:view/form_instance/widgets/question">
+            <div tal:define="widget nocall:view/form_instance/widgets/questiontype">
                 <metal:block use-macro="context/@@ploneform-macros/field" />
             </div>
 
