@@ -17,6 +17,7 @@
         <div tal:replace="structure provider:plone.belowcontentbody" />
         <span id="uid" tal:attributes="data-uid view/uid"></span>
         <span id="path" tal:attributes="data-path view/path"></span>
+        <span id="url" tal:attributes="data-url context/absolute_url"></span>
     </tal:main-macro>
 </metal:main>
 
