@@ -7,35 +7,36 @@
       lang="en">
 
 <body>
-    <metal:main fill-slot="content-core">
-    
-        <tal:topictrees tal:condition="not:view/intros">
-            <div i18n:translate="message_no_introductinos_exist">No introductions exist.</div>
-        </tal:topictrees>
+    <metal:main fill-slot="body">
+        
+        <div id="content">
+            <div id="content-core">
+                <tal:topictrees tal:condition="not:view/intros">
+                    <div i18n:translate="message_no_introductinos_exist">No introductions exist.</div>
+                </tal:topictrees>
 
-        <tal:intros
-            condition="view/intros"
-            define="template_id string:${view/__name__};
-                    Batch python:modules['Products.CMFPlone'].Batch;
-                    b_start python:int(request.get('b_start', 0));
-                    batch python:Batch(view.intros(), 10, b_start, orphan=0)">
+                <tal:intros
+                    condition="view/intros"
+                    define="template_id string:${view/__name__};
+                            Batch python:modules['Products.CMFPlone'].Batch;
+                            b_start python:int(request.get('b_start', 0));
+                            batch python:Batch(view.intros(), 10, b_start, orphan=0)">
 
+                    <h2 i18n:translate="label_select_intro">Select an introduction</h2>
 
-            <table class="wide-table">
-                <tr>
-                    <td class="no-padding" colspan="3"><hr/></td>
-                </tr>
-                <tal:brains repeat="brain view/intros">
-                    <tal:intro tal:define="intro brain/getObject">
-                        <div tal:replace="intro/introduction/output"/>
-                    </tal:intro>
-                </tal:brains>
+                    <tal:brains repeat="brain view/intros">
+                        <tal:intro tal:define="intro brain/getObject">
+                            <form method="get" tal:attributes="action intro/absolute_url">
+                                <button type="submit" class="select-intro" tal:content="structure intro/introduction/output" tal:attributes="href intro/absolute_url"></button>
+                            </form>
+                        </tal:intro>
+                    </tal:brains>
 
-            </table>
+                    <div metal:use-macro="context/batch_macros/macros/navigation" />
 
-            <div metal:use-macro="context/batch_macros/macros/navigation" />
-
-        </tal:intros>
+                </tal:intros>
+            </div>
+        </div>
 
     </metal:main>
 </body>
