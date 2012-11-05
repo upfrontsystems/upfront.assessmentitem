@@ -44,3 +44,20 @@ div.item-info {
 hr.item-separator {
     margin-top: 1em;
 }
+
+button.select-intro::-moz-focus-inner {
+  border: 0;
+}
+button.select-intro:hover {
+    background: #efefef;
+}
+button.select-intro {
+    background: transparent;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    padding: 1em;
+}
