@@ -14,7 +14,7 @@
                     Introduction (optional)
                 </label>
                 <div id="intro-actions"> 
-                    <input type="button" class="add-intro-button" i18n:attributes="value" href="++add++upfront.assessmentitem.content.introtext" value="Add introduction"/>
+                    <input type="button" class="add-intro-button" i18n:attributes="value" href="++add++upfront.assessmentitem.content.introtext" value="Add new introduction"/>
                     <input type="button" class="select-intro-button" href="@@selectintro" i18n:attributes="value" value="Select existing introduction"/>
                 </div>
                 <div id="intro-selected" class="hidden">
@@ -30,10 +30,6 @@
                 <metal:block use-macro="context/@@ploneform-macros/field" />
             </div>
 
-            <div tal:define="widget nocall:view/form_instance/widgets/questiontype">
-                <metal:block use-macro="context/@@ploneform-macros/field" />
-            </div>
-
             <div tal:define="widget nocall:view/form_instance/widgets/IMarks.marks">
                 <metal:block use-macro="context/@@ploneform-macros/field" />
             </div>
@@ -41,13 +37,11 @@
             <div tal:define="widget nocall:view/form_instance/widgets/IResponseTime.responsetime">
                 <metal:block use-macro="context/@@ploneform-macros/field" />
             </div>
+
+            <div tal:define="widget nocall:view/form_instance/widgets/answers">
+                <metal:block use-macro="context/@@ploneform-macros/field" />
+            </div>
         
-            <div id="answer_listing">
-                <metal:answers define-slot="answers">
-                <input type="hidden" name="form.widgets.answers.count" value ="0" originalvalue="0"/>
-                </metal:answers>
-            </div> 
-            <input type="button" id ="add_answer" value="Add a multiple-choice answer"/>
         </metal:fields>
     </metal:block>
 
