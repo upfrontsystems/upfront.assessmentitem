@@ -30,14 +30,14 @@
 
             <input type="text" tal:replace="structure widget/render" />
 
+            <div class="formControls answers-widget-remove-button" tal:condition="view/actions/values|nothing">
+                <tal:block repeat="action view/actions/values">
+                    <input type="submit"
+                        tal:condition="python:widget.name in action.name"
+                        tal:replace="structure action/render" />
+                </tal:block>
+            </div>
 
-        </div>
-        <div class="formControls answers-widget-buttons" tal:condition="view/actions/values|nothing">
-            <tal:block repeat="action view/actions/values">
-                <input type="submit"
-                    tal:condition="python:widget.name in action.name"
-                    tal:replace="structure action/render" />
-            </tal:block>
         </div>
     </tal:block>
     <div class="formControls answers-widget-buttons" tal:condition="view/actions/values|nothing">
