@@ -10,6 +10,20 @@ $(document).ready(function() {
         return false;
     });
 
+    var selectintro = function(resp, data) {
+            var div = $(resp),
+                path = $('#path', div).attr('data-path'),
+                href = $('#url', div).attr('data-url');
+            $('#introtext').html(
+                $('#form-widgets-introduction', div).html()
+            );
+            $('#form-widgets-introduction').attr('value', path);
+            $('#intro-actions').hide();
+            $('#intro-selected').show();
+            $('#intro-selected input.edit-intro-button').attr('href', href + '/edit');
+            $('input.edit-intro-button').prepOverlay(config);
+    };
+
     var config = {
         subtype: 'ajax',
         filter: '#content>*',
@@ -24,22 +38,19 @@ $(document).ready(function() {
                 config.init();
             }
         },
-        afterpost: function(resp, data) {
-            var div = $(resp),
-                path = $('#path', div).attr('data-path'),
-                href = $('#url', div).attr('data-url');
-            $('#introtext').html(
-                $('#form-widgets-introduction', div).html()
-            );
-            $('#form-widgets-introduction').attr('value', path);
-            $('#intro-actions').hide();
-            $('#intro-selected').show();
-            $('#intro-selected input.edit-intro-button').attr('href', href + '/edit');
-            $('input.edit-intro-button').prepOverlay(config);
-        }
+        afterpost: selectintro
     }
 
     $('input.add-intro-button').prepOverlay(config);
+
+    $('input.select-intro-button').prepOverlay({
+        subtype: 'ajax',
+        filter: '#content>*',
+        formselector: 'form',
+        noform: 'close',
+        closeselector: '[name=form.buttons.cancel]',
+        afterpost: selectintro
+    });
 
     $('.assessmentitem-edit-link').prepOverlay({
         subtype: 'ajax',
