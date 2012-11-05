@@ -52,56 +52,45 @@ $(document).ready(function() {
         afterpost: selectintro
     });
 
-    $('.assessmentitem-edit-link').prepOverlay({
-        subtype: 'ajax',
-        filter: '#content>*',
-        formselector: '#form',
-        noform: 'reload',
-        redirect: url,
-        closeselector: '[name=form.buttons.cancel]',
-        config: {
-            onLoad: function() {
-                $("#add_answer").click(add_answer);
-                var tinymceid = 'form.widgets.question';
-                delete InitializedTinyMCEInstances[tinymceid];
-                var config = new TinyMCEConfig(tinymceid);
-                config.init();
-                answercount = 0;
-
-                $("#answer_listing textarea.mce_editable").each(
-                    function(index) {
-                        answercount += answercount;
-                        config = new TinyMCEConfig($(this).attr('id'));
-                        config.init();
-                    }
-                );
-            }
-        }
-    });
-
-
     function add_answer() {
-        answerid = answercount;
+        var answercount = $('input[name="form.widgets.answers.count"]')
+            .attr('value');
 
         $.ajax({
-            url: '@@upfront.assessmentitem.answerform',
-            data: {'answerid': answerid},
+            url: '++add++upfront.assessmentitem.content.assessmentitem',
+            data: {'form.widgets.answers.buttons.add': 'Add Answer',
+                   'form.widgets.answers.count': answercount},
             success: function(data) {
-                $("#answer_listing").append(data);
-                $("input[name='form.widgets.answers.count']").attr('value', answercount);
-                answercount += 1;
-                $("input[name='form.widgets.answers.count']").attr('originalvalue', answercount);
-                var tinymceid = 'form.widgets.answers.' + answerid + '.widgets.answer';
+                var el = $(data),
+                    answers = $('#formfield-form-widgets-answers', el),
+                    answercount = $('input[name="form.widgets.answers.count"]',
+                        answers).attr('value');;
+                var newanswer = $('div.answers-widget-field', answers).last();
+                var removebtn_id = $('div.answers-widget-remove-button input',
+                    newanswer).attr('id');
+
+                /* update answercount */
+                $('input[name="form.widgets.answers.count"]').attr('value',
+                    answercount);
+                /* hack to get answer's outerhtml */
+                var html = $('<div />').append(newanswer.clone()).html()
+                $("#formfield-form-widgets-answers").append(html);
+
+                var tinymceid = $('textarea.mce_editable', newanswer)
+                    .attr('id');
                 var config = new TinyMCEConfig(tinymceid);
                 config.init();
-                $('#' + answerid + " .delete").click(function() {
-                    $(this).parent().remove();    
+                $('#'+removebtn_id).click(function() {
+                    $(this).parents('div.answers-widget-field').remove();
+                    return false;
                 });
             }
         });
+        return false;
     }
 
-    $('#add_answer').click(add_answer);
+    $('#form-widgets-answers-buttons-add').addClass('allowMultiSubmit');
+    $('#form-widgets-answers-buttons-add').click(add_answer);
 
     $('#answer_listing .delete').click(function() {
         $(this).parent().remove();    
