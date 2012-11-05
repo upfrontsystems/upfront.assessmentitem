@@ -15,7 +15,7 @@
                 </label>
                 <div id="intro-actions"> 
                     <input type="button" class="add-intro-button" i18n:attributes="value" href="++add++upfront.assessmentitem.content.introtext" value="Add introduction"/>
-                    <input type="button" class="select-intro-button" href="#" i18n:attributes="value" value="Select existing introduction"/>
+                    <input type="button" class="select-intro-button" href="@@selectintro" i18n:attributes="value" value="Select existing introduction"/>
                 </div>
                 <div id="intro-selected" class="hidden">
                     <input type="hidden" value="1" name="form.widgets.introduction-empty-marker" originalvalue="1">
