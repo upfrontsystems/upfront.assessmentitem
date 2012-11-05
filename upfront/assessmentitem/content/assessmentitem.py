@@ -48,12 +48,6 @@ class IAssessmentItem(form.Schema):
             title=_(u"Question")
         )
 
-    form.widget(questiontype=RadioFieldWidget)
-    questiontype = schema.Choice(
-            title=_(u"Question type"),
-            vocabulary=QUESTION_TYPE,
-        )
-
     form.widget(answers=AnswersFieldWidget)
     answers = schema.List(
             title = u"Answers",
