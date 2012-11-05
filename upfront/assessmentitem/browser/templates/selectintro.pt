@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="tarmii.theme"
+      lang="en">
+
+<body>
+    <metal:main fill-slot="content-core">
+    
+        <tal:topictrees tal:condition="not:view/intros">
+            <div i18n:translate="message_no_introductinos_exist">No introductions exist.</div>
+        </tal:topictrees>
+
+        <tal:intros
+            condition="view/intros"
+            define="template_id string:${view/__name__};
+                    Batch python:modules['Products.CMFPlone'].Batch;
+                    b_start python:int(request.get('b_start', 0));
+                    batch python:Batch(view.intros(), 10, b_start, orphan=0)">
+
+
+            <table class="wide-table">
+                <tr>
+                    <td class="no-padding" colspan="3"><hr/></td>
+                </tr>
+                <tal:brains repeat="brain view/intros">
+                    <tal:intro tal:define="intro brain/getObject">
+                        <div tal:replace="intro/introduction/output"/>
+                    </tal:intro>
+                </tal:brains>
+
+            </table>
+
+            <div metal:use-macro="context/batch_macros/macros/navigation" />
+
+        </tal:intros>
+
+    </metal:main>
+</body>
+</html>
+
