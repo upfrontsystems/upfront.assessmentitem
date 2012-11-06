@@ -73,26 +73,7 @@ class AssessmentItem(dexterity.Container):
 
 grok.templatedir('templates')
 
-class IAnswersField(Interface):
-    """ Marker interface for add form
-    """
-
 class AssessmentItemEditForm(dexterity.EditForm):
     grok.name('edit')
     grok.context(IAssessmentItem)
     grok.template('assessmentitem-edit')
-
-class AnswerForm(grok.View):
-    grok.name('upfront.assessmentitem.answerform')
-    grok.context(Interface)
-    grok.template('answerform')
-
-    def update(self):
-        self.answerid = self.request.get('answerid')
-        self.answerfieldname = \
-            'form.widgets.answers.%s.widgets.answer' % self.answerid
-        self.iscorrectfieldname = \
-            'form.widgets.answers.%s.widgets.iscorrect' % self.answerid
-        self.content = self.request.get('content', '')
-        self.rows = self.request.get('rows', 5)
-        self.cols = self.request.get('cols', 60)
