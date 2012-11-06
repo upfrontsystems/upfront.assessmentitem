@@ -3,6 +3,7 @@ from zope import schema
 
 from plone.directives import form
 from plone.autoform.interfaces import IFormFieldProvider
+from collective.topictree.behavior import ITopicTags
 
 from upfront.assessmentitem import MessageFactory as _
 
@@ -26,7 +27,17 @@ class IResponseTime(form.Schema):
             default=0,
         )
 
+class IItemMetadata(IMarks, IResponseTime, ITopicTags):
+    """ Combine IMarks, IResponseTime and ITopicTags
+    """
+
+    form.fieldset(
+        'categorization',
+        label=_(u'Categorization'),
+        fields=['marks', 'responsetime', 'topics'],
+        )
+
 # Mark these interfaces as form field providers
 alsoProvides(IMarks, IFormFieldProvider)
 alsoProvides(IResponseTime, IFormFieldProvider)
-
+alsoProvides(IItemMetadata, IFormFieldProvider)
