@@ -61,3 +61,8 @@ button.select-intro {
     cursor: pointer;
     padding: 1em;
 }
+
+#introtext {
+    padding: 0.5em;
+    border: 1px solid black;
+}

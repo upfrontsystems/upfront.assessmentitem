@@ -19,6 +19,7 @@ from Products.statusmessages.interfaces import IStatusMessage
 from upfront.assessmentitem import MessageFactory as _
 from upfront.assessmentitem.content.answer import IAnswer
 from upfront.assessmentitem.content.introtext import IIntroText
+from upfront.assessmentitem.browser.introwidget import IntroFieldWidget
 from upfront.assessmentitem.browser.answerswidget import AnswersFieldWidget
 
 QUESTION_TYPE = SimpleVocabulary(
@@ -33,6 +34,7 @@ class IAssessmentItem(form.Schema):
     Assessment Item content type
     """
 
+    form.widget(introduction=IntroFieldWidget)
     introduction = RelationChoice(
             title=_(u"Introduction"),
             description=_(u"A common introduction to a serious of "
@@ -74,10 +76,6 @@ grok.templatedir('templates')
 class IAnswersField(Interface):
     """ Marker interface for add form
     """
-
-class AssessmentItemAddForm(dexterity.AddForm):
-    grok.name('upfront.assessmentitem.content.assessmentitem')
-    grok.template('assessmentitem-add')
 
 class AssessmentItemEditForm(dexterity.EditForm):
     grok.name('edit')
