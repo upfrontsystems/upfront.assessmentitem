@@ -53,7 +53,7 @@ class AnswersWidget(MultiWidget):
             self.handlers.addHandler(but, handler)
         self.actions.update()
 
-    @button.buttonAndHandler(_('Add Answer'), name='add',
+    @button.buttonAndHandler(_('Add Multiple-Choice Answer'), name='add',
                              condition=attrgetter('allowAdding'))
     def handleAdd(self, action):
         self.appendAddingWidget()
