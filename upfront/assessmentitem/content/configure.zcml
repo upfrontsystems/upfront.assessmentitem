@@ -7,13 +7,4 @@
 
     <grok:grok package="." />
 
-    <browser:page
-        name="assessmentitem-macros"
-        for="*"
-        class="plone.z3cform.templates.Macros"
-        template="templates/assessmentitem-add.pt"
-        allowed_interface="zope.interface.common.mapping.IItemMapping"
-        permission="zope.Public"
-        />
-
 </configure>
