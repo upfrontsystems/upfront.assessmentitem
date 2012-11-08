@@ -52,6 +52,7 @@ $(document).ready(function() {
     }
 
     $('input.add-intro-button').prepOverlay(config);
+    $('input.edit-intro-button').prepOverlay(config);
 
     $('input.select-intro-button').prepOverlay({
         subtype: 'ajax',
