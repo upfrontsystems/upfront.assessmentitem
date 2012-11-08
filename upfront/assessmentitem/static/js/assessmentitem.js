@@ -2,6 +2,16 @@ $(document).ready(function() {
 
     var url = location.href;
 
+    $('a.delete_confirmation').prepOverlay({
+        subtype: 'ajax',
+        filter: common_content_filter,
+        formselector: '#delete_confirmation',
+        noform: function(el) {return $.plonepopups.noformerrorshow(el, 'redirect');},
+        redirect: $.plonepopups.redirectbasehref,
+        closeselector: '[name="form.button.Cancel"]',
+        width:'50%'
+    });
+
     var answercount = 0;
 
     $('input.remove-intro-button').click(function() {
