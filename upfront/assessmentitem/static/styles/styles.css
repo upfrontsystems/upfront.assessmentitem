@@ -36,10 +36,21 @@
     padding: 0.3em;
 }
 
+#actions-and-info {
+    border-bottom: 1px solid black;
+}
+
+div.item-actions a {
+    margin-right: 1em;
+}
 div.item-info {
     margin-bottom: 1em;
     float: right;
 }
+span.item-info {
+    margin-right: 1em;
+}
+
 
 hr.item-separator {
     margin-top: 1em;
