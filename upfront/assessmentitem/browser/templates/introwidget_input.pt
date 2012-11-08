@@ -1,13 +1,13 @@
 <div id="introduction" class="field introduction">
-    <div id="intro-actions"> 
+    <div id="intro-actions" tal:attributes="class view/actions_css_class"> 
         <input type="button" class="add-intro-button" i18n:attributes="value" href="++add++upfront.assessmentitem.content.introtext" value="Add new introduction"/>
         <input type="button" class="select-intro-button" href="@@selectintro" i18n:attributes="value" value="Select existing introduction"/>
     </div>
-    <div id="intro-selected" class="hidden">
+    <div id="intro-selected" tal:attributes="class view/introselected_css_class">
         <input type="hidden" value="1" name="form.widgets.introduction-empty-marker" originalvalue="1">
-        <input type="hidden" name="form.widgets.introduction:list" id="form-widgets-introduction" title="None" value="">
-        <div id="introtext"></div>
-        <input type="button" class="edit-intro-button" i18n:attributes="value" href="#" value="Edit introduction"/>
+        <input type="hidden" name="form.widgets.introduction:list" id="form-widgets-introduction" title="None" value="" tal:attributes="value python:''.join(view.value)">
+        <div id="introtext" tal:content="structure view/introtext"></div>
+        <input type="button" class="edit-intro-button" i18n:attributes="value" href="#" value="Edit introduction" tal:attributes="href view/introtext_edit_url"/>
         <input type="button" class="remove-intro-button" i18n:attributes="value" value="Remove introduction"/>
     </div>
 </div>
