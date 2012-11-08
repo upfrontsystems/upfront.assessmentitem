@@ -62,18 +62,17 @@ class IAssessmentItem(form.Schema):
 class AssessmentItem(dexterity.Container):
     grok.implements(IAssessmentItem)
 
-    def answers(self):
-        """ return all answers
-        """
-        contentFilter = {
-            'portal_type':'upfront.assessmentitem.content.answer'
-            }
-        return self.getFolderContents(contentFilter, full_objects=True)
-
-
 grok.templatedir('templates')
 
-class AssessmentItemEditForm(dexterity.EditForm):
-    grok.name('edit')
+class View(dexterity.DisplayForm):
     grok.context(IAssessmentItem)
-    grok.template('assessmentitem-edit')
+    grok.require('zope2.View')
+    grok.template('assessmentitem-view')
+
+    def creationdate(self):
+        return self.context.created().strftime('%d %B %Y')
+
+    def review_state(self):
+        wftool = getToolByName(self.context, 'portal_workflow')
+        return wftool.getInfoFor(self.context, 'review_state')
+
