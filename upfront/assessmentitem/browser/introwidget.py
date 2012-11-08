@@ -50,9 +50,10 @@ class IntroWidget(ContentTreeWidget):
         return len(self.value) == 0 and 'hidden' or ''
 
     def introtext_edit_url(self):
-        catalog = getToolByName(self.context, 'portal_catalog')
-        introtext = catalog(path=self.value)[0].getObject()
-        return introtext.absolute_url() + '/edit'
+        if self.value:
+            catalog = getToolByName(self.context, 'portal_catalog')
+            introtext = catalog(path=self.value)[0].getObject()
+            return introtext.absolute_url() + '/edit'
 
 
 @zope.interface.implementer(interfaces.IFieldWidget)
