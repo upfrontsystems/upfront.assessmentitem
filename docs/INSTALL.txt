@@ -1,4 +1,4 @@
-simpill.app Installation
+upfront.assessmentitem Installation
 ------------------------
 
 To install upfront.assessmentitem using zc.buildout and the plone.recipe.zope2instance
