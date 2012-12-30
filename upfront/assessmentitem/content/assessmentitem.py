@@ -37,7 +37,7 @@ class IAssessmentItem(form.Schema):
     form.widget(introduction=IntroFieldWidget)
     introduction = RelationChoice(
             title=_(u"Introduction"),
-            description=_(u"A common introduction to a serious of "
+            description=_(u"A common introduction to a series of "
                            "related questions, for example a poem "
                            "or image that are referred to by more than "
                            "one question"),
