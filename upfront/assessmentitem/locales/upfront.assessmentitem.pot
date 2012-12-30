@@ -1,0 +1,92 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-12-30 19:54+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: upfront.assessmentitem\n"
+
+#: ./content/templates/assessmentitem-view.pt:25
+msgid "${marks} marks"
+msgstr ""
+
+#: ./content/templates/assessmentitem-view.pt:26
+msgid "${responsetime} mins"
+msgstr ""
+
+#: ./content/assessmentitem.py:40
+msgid "A common introduction to a series of related questions, for example a poem or image that are referred to by more than one question"
+msgstr ""
+
+#: ./browser/answerswidget.py:56
+msgid "Add Multiple-Choice Answer"
+msgstr ""
+
+#: ./content/answer.py:18
+#: ./profiles/default/types/upfront.assessmentitem.content.answer.xml
+msgid "Answer"
+msgstr ""
+
+#: ./profiles/default/types/upfront.assessmentitem.content.assessmentitem.xml
+msgid "Assessment Item"
+msgstr ""
+
+#: ./behaviors.py:36
+msgid "Categorization"
+msgstr ""
+
+#: ./content/assessmentitem.py:27
+msgid "Free-form"
+msgstr ""
+
+#: ./content/assessmentitem.py:39
+#: ./content/introtext.py:18
+#: ./profiles/default/types/upfront.assessmentitem.content.introtext.xml
+msgid "Introduction"
+msgstr ""
+
+#: ./profiles/default/types/upfront.assessmentitem.content.introtext.xml
+msgid "Introduction to a set of related questions"
+msgstr ""
+
+#: ./behaviors.py:15
+msgid "Marks"
+msgstr ""
+
+#: ./content/assessmentitem.py:29
+msgid "Multiple Choice"
+msgstr ""
+
+#: ./content/assessmentitem.py:50
+msgid "Question"
+msgstr ""
+
+#: ./behaviors.py:25
+msgid "Response Time"
+msgstr ""
+
+#: ./content/answer.py:22
+msgid "is correct?"
+msgstr ""
+
+#. Default: "Delete"
+#: ./content/templates/assessmentitem-view.pt:33
+msgid "label_delete"
+msgstr ""
+
+#. Default: "Edit"
+#: ./content/templates/assessmentitem-view.pt:31
+msgid "label_edit"
+msgstr ""
+
