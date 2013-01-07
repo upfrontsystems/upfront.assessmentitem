@@ -39,7 +39,7 @@ $(document).ready(function() {
         filter: '#content>*',
         formselector: '#form',
         noform: 'close',
-        closeselector: '[name=form.buttons.cancel]',
+//        closeselector: '[name=form.buttons.cancel]',
         config: {
             onLoad: function() {
                 var tinymceid = 'form.widgets.introduction';
