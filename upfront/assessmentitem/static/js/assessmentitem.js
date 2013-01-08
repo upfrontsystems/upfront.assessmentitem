@@ -8,7 +8,7 @@ $(document).ready(function() {
         formselector: '#delete_confirmation',
         noform: function(el) {return $.plonepopups.noformerrorshow(el, 'redirect');},
         redirect: $.plonepopups.redirectbasehref,
-        closeselector: '[name="form.button.Cancel"]',
+        closeselector: '[name="form.buttons.cancel"]',
         width:'50%'
     });
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
         filter: '#content>*',
         formselector: '#form',
         noform: 'close',
-        closeselector: '[name="form.button.Cancel"]',
+        closeselector: '[name="form.buttons.cancel"]',
         config: {
             onLoad: function() {
                 var tinymceid = 'form.widgets.introduction';
@@ -59,7 +59,7 @@ $(document).ready(function() {
         filter: '#content>*',
         formselector: 'form',
         noform: 'close',        
-        closeselector: '[name="form.button.Cancel"]',
+        closeselector: '[name="form.buttons.cancel"]',
         afterpost: selectintro
     });
 
