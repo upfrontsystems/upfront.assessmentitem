@@ -5,7 +5,7 @@ from z3c.form.browser.multi import MultiWidget
 import zope.interface
 from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 
-from z3c.form.i18n import MessageFactory as _
+from upfront.assessmentitem import MessageFactory as _
 from z3c.form import interfaces
 from z3c.form import widget
 from z3c.form import button
