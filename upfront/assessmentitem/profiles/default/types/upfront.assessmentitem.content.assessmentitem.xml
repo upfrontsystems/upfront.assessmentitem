@@ -24,6 +24,7 @@
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="upfront.assessmentitem.behaviors.IItemMetadata"/>
+     <element value="tarmii.theme.behaviors.IRating"/>
    </property>
 
   <!-- View information -->

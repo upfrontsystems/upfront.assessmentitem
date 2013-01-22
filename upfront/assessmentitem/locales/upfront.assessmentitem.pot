@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-09 15:42+0000\n"
+"POT-Creation-Date: 2013-01-22 18:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,8 +34,13 @@ msgid "Add Multiple-Choice Answer"
 msgstr ""
 
 #: ./content/answer.py:18
+#: ./content/assessmentitem.py:57
 #: ./profiles/default/types/upfront.assessmentitem.content.answer.xml
 msgid "Answer"
+msgstr ""
+
+#: ./content/assessmentitem.py:55
+msgid "Answers"
 msgstr ""
 
 #: ./profiles/default/types/upfront.assessmentitem.content.assessmentitem.xml

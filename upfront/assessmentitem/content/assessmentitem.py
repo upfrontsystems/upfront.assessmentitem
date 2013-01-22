@@ -52,9 +52,9 @@ class IAssessmentItem(form.Schema):
 
     form.widget(answers=AnswersFieldWidget)
     answers = schema.List(
-            title = u"Answers",
+            title = _(u"Answers"),
             value_type = schema.Object(
-                title=u'Answer',
+                title=_(u'Answer'),
                 schema=IAnswer),
             required = False,
         )
