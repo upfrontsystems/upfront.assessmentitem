@@ -69,6 +69,11 @@ class View(dexterity.DisplayForm):
     grok.require('zope2.View')
     grok.template('assessmentitem-view')
 
+    def assessmentitem(self):
+        """ Return the currently selected assessmentitem id
+        """
+        return self.context.id
+
     def creationdate(self):
         return self.context.created().strftime('%d %B %Y')
 

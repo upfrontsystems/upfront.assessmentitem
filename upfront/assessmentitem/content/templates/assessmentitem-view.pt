@@ -12,6 +12,8 @@
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
+        <h1 tal:content="view/assessmentitem"></h1>
+
         <div class="introduction" tal:content="structure context/introduction/output|nothing">
             Optional Question Introduction
         </div>
