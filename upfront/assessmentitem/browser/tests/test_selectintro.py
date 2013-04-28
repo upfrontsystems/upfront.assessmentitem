@@ -8,10 +8,10 @@ class TestSelectIntro(TarmiiThemeTestBase):
     """
 
     def test_questions(self):
-        view = self.questions.restrictedTraverse('@@selectintro')
+        view = self.portal.restrictedTraverse('@@selectintro')
         self.assertEqual(len(view.intros()), 0)
 
-        intro = createContentInContainer(self.questions,
+        intro = createContentInContainer(self.portal,
             'upfront.assessmentitem.content.introtext',
             introduction=RichTextValue('<p>Introduction</p>'))
 
