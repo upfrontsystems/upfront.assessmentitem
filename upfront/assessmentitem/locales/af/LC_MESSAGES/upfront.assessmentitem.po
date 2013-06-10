@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-22 18:05+0000\n"
-"PO-Revision-Date: 2013-01-09 17:50 +0200\n"
+"POT-Creation-Date: 2013-06-10 08:54+0000\n"
+"PO-Revision-Date: 2013-06-10 10:55 +0200\n"
 "Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -14,11 +14,11 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: upfront.assessmentitem\n"
 
-#: ./content/templates/assessmentitem-view.pt:25
+#: ./content/templates/assessmentitem-view.pt:27
 msgid "${marks} marks"
 msgstr "${marks} punte"
 
-#: ./content/templates/assessmentitem-view.pt:26
+#: ./content/templates/assessmentitem-view.pt:28
 msgid "${responsetime} mins"
 msgstr "${responsetime} minute"
 
@@ -83,12 +83,12 @@ msgid "is correct?"
 msgstr "is reg?"
 
 #. Default: "Delete"
-#: ./content/templates/assessmentitem-view.pt:33
+#: ./content/templates/assessmentitem-view.pt:35
 msgid "label_delete"
 msgstr "Verwyder"
 
 #. Default: "Edit"
-#: ./content/templates/assessmentitem-view.pt:31
+#: ./content/templates/assessmentitem-view.pt:33
 msgid "label_edit"
 msgstr "Redigeer"
 
@@ -97,8 +97,8 @@ msgstr "Redigeer"
 msgid "label_select_intro"
 msgstr "Kies 'n inleiding"
 
-#. Default: "No introductions exist."
+#. Default: "No introductions exist"
 #: ./browser/templates/selectintro.pt:15
 msgid "message_no_introductinos_exist"
-msgstr "Geen inleidings bestaan​​."
+msgstr "Geen inleidings bestaan​​"
 

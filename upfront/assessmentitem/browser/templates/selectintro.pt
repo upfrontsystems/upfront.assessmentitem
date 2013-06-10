@@ -12,7 +12,7 @@
         <div id="content">
             <div id="content-core">
                 <tal:topictrees tal:condition="not:view/intros">
-                    <div i18n:translate="message_no_introductinos_exist">No introductions exist.</div>
+                    <div i18n:translate="message_no_introductinos_exist">No introductions exist</div>
                 </tal:topictrees>
 
                 <tal:intros
