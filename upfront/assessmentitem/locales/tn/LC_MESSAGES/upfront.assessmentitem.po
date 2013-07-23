@@ -1,107 +1,104 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2013-07-23 15:53+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2013-07-23 17:55 +0200\n"
+"Last-Translator: witek\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
+"Language-Code: tn\n"
+"Language-Name: Setswana\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: upfront.assessmentitem\n"
 
 #: ./content/templates/assessmentitem-view.pt:27
 msgid "${marks} marks"
-msgstr ""
+msgstr "${marks} meputso"
 
 #: ./content/templates/assessmentitem-view.pt:28
 msgid "${responsetime} mins"
-msgstr ""
+msgstr "${responsetime} metsotso"
 
 #: ./content/assessmentitem.py:40
 msgid "A common introduction to a series of related questions, for example a poem or image that are referred to by more than one question"
-msgstr ""
+msgstr "Mokgwa wa setlwaedi wa go tsebisa mohlwaela wa dipotso tse tshwanetseng, sekao, thotokiso ampo setshwano seo se umakang ka dipotso tse fetang e nngwe."
 
 #: ./browser/answerswidget.py:56
 msgid "Add Multiple-Choice Answer"
-msgstr ""
+msgstr "Oketša ka dikarabo tsa tlhopo ya gao"
 
 #: ./content/answer.py:18
 #: ./content/assessmentitem.py:57
 #: ./profiles/default/types/upfront.assessmentitem.content.answer.xml
 msgid "Answer"
-msgstr ""
+msgstr "Karabo"
 
 #: ./content/assessmentitem.py:55
 msgid "Answers"
-msgstr ""
+msgstr "Dikarabo"
 
 #: ./profiles/default/types/upfront.assessmentitem.content.assessmentitem.xml
 msgid "Assessment Item"
-msgstr ""
+msgstr "Ntlhana ya kelo"
 
 #: ./behaviors.py:36
 msgid "Categorization"
-msgstr ""
+msgstr "Baya ka mananeo"
 
 #: ./content/assessmentitem.py:27
 msgid "Free-form"
-msgstr ""
+msgstr "Foromo ya mahala"
 
 #: ./content/assessmentitem.py:39
 #: ./content/introtext.py:18
 #: ./profiles/default/types/upfront.assessmentitem.content.introtext.xml
 msgid "Introduction"
-msgstr ""
+msgstr "Matseno"
 
 #: ./profiles/default/types/upfront.assessmentitem.content.introtext.xml
 msgid "Introduction to a set of related questions"
-msgstr ""
+msgstr "Matseno go thaiso ya sa dipotso tsa kutlwano"
 
 #: ./behaviors.py:15
 msgid "Marks"
-msgstr ""
+msgstr "Meputso"
 
 #: ./content/assessmentitem.py:29
 msgid "Multiple Choice"
-msgstr ""
+msgstr "Tlhopho ho tse atileng"
 
 #: ./content/assessmentitem.py:50
 msgid "Question"
-msgstr ""
+msgstr "Potso"
 
 #: ./behaviors.py:25
 msgid "Response Time"
-msgstr ""
+msgstr "Nako ya karabo"
 
 #: ./content/answer.py:22
 msgid "is correct?"
-msgstr ""
+msgstr "e nepagetse?"
 
 #. Default: "Delete"
 #: ./content/templates/assessmentitem-view.pt:35
 msgid "label_delete"
-msgstr ""
+msgstr "Phimola"
 
 #. Default: "Edit"
 #: ./content/templates/assessmentitem-view.pt:33
 msgid "label_edit"
-msgstr ""
+msgstr "Rulaganya"
 
 #. Default: "Select an introduction"
 #: ./browser/templates/selectintro.pt:25
 msgid "label_select_intro"
-msgstr ""
+msgstr "Kgetha matseno"
 
 #. Default: "No introductions exist"
 #: ./browser/templates/selectintro.pt:15
 msgid "message_no_introductinos_exist"
-msgstr ""
+msgstr "Ga go na matseno"
 
